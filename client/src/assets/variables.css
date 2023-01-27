@@ -1,0 +1,12 @@
+:root {
+  --black-alpha: rgba(30, 30, 30, 0.5);
+  --black: #292929;
+  --dark-gray: #333333;
+  --light-gray: #bfd7ea;
+  --medium-gray: #91aec1;
+  --dark-blue: #508ca4;
+  --green-blue: #48e5c2;
+  --light-blue: #55dde0;
+  --white: #f5f5f5;
+  --gradient: linear-gradient(90.31deg, #48e5c2 0%, #55dde0 100%);
+}
