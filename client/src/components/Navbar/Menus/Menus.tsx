@@ -62,6 +62,7 @@ export function MobileMenu() {
                 className={`${styles.navLink}`}
                 to={link.path}
                 key={link.path}
+                onClick={() => setIsMenuOpened(!isMenuOpened)}
               >
                 <span>{link.text}</span>
                 <span className='material-symbols-outlined'>{link.icon}</span>
