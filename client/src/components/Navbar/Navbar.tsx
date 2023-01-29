@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 //. styles
@@ -7,10 +8,18 @@ import styles from './Navbar.module.css';
 import Logo from '../../assets/logo.png';
 
 export default function Navbar() {
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  });
 
   return (
-    <nav className={location.pathname === '/' ? styles.homeNav : styles.nav}>
+    <nav className={isScrolled ? styles.navBg : ''}>
       <NavLink to={'/'}>
         <img src={Logo} alt='' className='logo' />
       </NavLink>

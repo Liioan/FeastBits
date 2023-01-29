@@ -1,10 +1,14 @@
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 2rem 4rem;
+  transition: 0.2s ease;
 }
 
-.nav {
+.navBg {
   background-color: var(--black);
 }
 
