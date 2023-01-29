@@ -1,5 +1,9 @@
-import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useIsMobile } from '../../context/IsMobileContext';
+
+//. components
+import { DesktopMenu, MobileMenu } from './Menus/Menus';
 
 //. styles
 import styles from './Navbar.module.css';
@@ -9,6 +13,7 @@ import Logo from '../../assets/logo.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isMobile, isMenuOpened, setIsMenuOpened } = useIsMobile();
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
@@ -23,29 +28,8 @@ export default function Navbar() {
       <NavLink to={'/'}>
         <img src={Logo} alt='' className='logo' />
       </NavLink>
-      <div className={styles.navButtons}>
-        <NavLink className={styles.navLink} to={'/about'}>
-          about us
-        </NavLink>
-        <NavLink className={styles.navLink} to={'/diets'}>
-          diets
-        </NavLink>
-        <NavLink className={styles.navLink} to={'/meals'}>
-          meals
-        </NavLink>
-        <NavLink className={styles.navLink} to={'/blog'}>
-          blog
-        </NavLink>
-        <NavLink className={styles.navLink} to={'/contact'}>
-          contact
-        </NavLink>
-        <NavLink
-          className={`${styles.navLink} material-symbols-outlined`}
-          to={'/account'}
-        >
-          account_circle
-        </NavLink>
-      </div>
+      {!isMobile && <DesktopMenu />}
+      {isMobile && <MobileMenu />}
     </nav>
   );
 }

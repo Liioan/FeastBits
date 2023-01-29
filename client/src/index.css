@@ -16,10 +16,10 @@ body {
 
 body {
   height: 1000vh;
+  background: var(--dark-gray);
 }
 
 .App {
-  background: var(--dark-gray);
   min-height: 100vh;
 }
 
