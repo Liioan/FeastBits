@@ -17,9 +17,9 @@ export function Button() {
       <AnimatePresence>
         {!isMenuOpened && (
           <motion.span
-            initial={{ translateY: '-100%', opacity: 0 }}
-            animate={{ translateY: 0, opacity: 1 }}
-            exit={{ translateY: '-100%', opacity: 0 }}
+            initial={{ rotate: '-180deg', opacity: 0 }}
+            animate={{ rotate: '0deg', opacity: 1 }}
+            exit={{ rotate: '-180deg', opacity: 0 }}
             transition={{ duration: 0.1 }}
             className={`material-symbols-outlined ${styles.navbarIcon}`}
           >
@@ -30,9 +30,9 @@ export function Button() {
       <AnimatePresence>
         {isMenuOpened && (
           <motion.span
-            initial={{ translateY: '100%', opacity: 0 }}
-            animate={{ translateY: 0, opacity: 1 }}
-            exit={{ translateY: '100%', opacity: 0 }}
+            initial={{ rotate: '180deg', opacity: 0 }}
+            animate={{ rotate: '0deg', opacity: 1 }}
+            exit={{ rotate: '180deg', opacity: 0 }}
             transition={{ duration: 0.1 }}
             className={`material-symbols-outlined ${styles.navbarIcon}`}
           >

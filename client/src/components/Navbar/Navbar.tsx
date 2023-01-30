@@ -13,7 +13,7 @@ import Logo from '../../assets/logo.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isMobile, isMenuOpened, setIsMenuOpened } = useIsMobile();
+  const { isMobile } = useIsMobile();
 
   const onScroll = () => {
     if (window.scrollY > 100) {
