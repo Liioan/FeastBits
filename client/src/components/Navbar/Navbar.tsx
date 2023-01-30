@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useIsMobile } from '../../context/IsMobileContext';
 
@@ -15,12 +15,20 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isMobile, isMenuOpened, setIsMenuOpened } = useIsMobile();
 
-  window.addEventListener('scroll', () => {
+  const onScroll = () => {
     if (window.scrollY > 100) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
   });
 
   return (
