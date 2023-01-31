@@ -1,0 +1,66 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem;
+  background-image: url('../../../assets/HeroImg.png');
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 3rem;
+}
+
+.subHeader {
+  font-size: 9.6rem;
+  font-weight: 300;
+  color: var(--light-blue);
+}
+
+.subHeaderText {
+  font-size: 3.2rem;
+  font-weight: 300;
+  color: var(--dark-blue);
+}
+
+.hero a {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  translate: 0 -0.5rem;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.hero a:hover {
+  color: var(--green-blue);
+  translate: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container svg {
+    width: 80vw;
+  }
+
+  .subHeader {
+    font-size: 6.4rem;
+    text-align: center;
+  }
+
+  .subHeaderText {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+}

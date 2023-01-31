@@ -6,8 +6,9 @@ nav {
   justify-content: space-between;
   padding: 2rem 4rem;
   transition: 0.2s ease;
+  z-index: 3;
 }
 
 .navBg {
-  background-color: var(--black);
+  background-color: var(--black-alpha);
 }
