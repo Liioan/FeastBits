@@ -23,14 +23,14 @@ export default function Hero() {
             transition={{ duration: 5, ease: 'easeIn' }}
           />
         </svg>
-        <motion.h2
+        <motion.h1
           className={styles.subHeader}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: 'anticipate', delay: 1 }}
         >
           catering
-        </motion.h2>
+        </motion.h1>
         <motion.span
           className={styles.subHeaderText}
           initial={{ opacity: 0 }}

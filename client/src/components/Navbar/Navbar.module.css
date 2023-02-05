@@ -6,9 +6,11 @@ nav {
   justify-content: space-between;
   padding: 2rem 4rem;
   transition: 0.2s ease;
-  z-index: 3;
+  z-index: 100;
+  height: 10rem;
 }
 
 .navBg {
   background-color: var(--black-alpha);
+  backdrop-filter: blur(5px);
 }

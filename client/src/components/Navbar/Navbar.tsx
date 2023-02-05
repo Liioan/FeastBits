@@ -16,7 +16,7 @@ export default function Navbar() {
   const { isMobile } = useIsMobile();
 
   const onScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);

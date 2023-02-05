@@ -42,6 +42,52 @@ a {
   filter: none;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2:first-of-type,
+h3:first-of-type {
+  margin-top: 10rem;
+}
+
+h2,
+h3 {
+  position: relative;
+  text-align: center;
+  font-size: 5.6rem;
+  color: var(--white);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 > span,
+h3 > span {
+  padding: 0.5rem 2rem;
+  background: var(--dark-gray) !important;
+}
+
+h2::after,
+h3::after {
+  z-index: -10;
+  position: absolute;
+  content: '';
+  display: block;
+  width: 105%;
+  height: 50%;
+  top: 60%;
+  background: var(--gradient);
+}
+
+::selection {
+  background-color: var(--green-blue);
+  color: var(--black);
+}
+
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
