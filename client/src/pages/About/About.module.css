@@ -1,0 +1,39 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+}
+
+.aboutDesc {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+}
+
+.aboutDesc > * {
+  max-width: 60rem;
+  width: 50%;
+  min-width: 30rem;
+}
+
+.aboutDesc img {
+  border-radius: 1rem;
+}
+
+.aboutDesc div {
+  font-size: 2.6rem;
+  color: var(--white);
+}
+
+@media screen and (max-width: 1200px) {
+  .aboutDesc {
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .aboutDesc div {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
