@@ -1,0 +1,14 @@
+.marquee {
+  width: 80vw;
+  height: 25rem;
+}
+
+.marquee img {
+  margin: 10rem;
+  filter: grayscale(1);
+  transition: 0.2s ease;
+}
+
+.marquee img:hover {
+  filter: none;
+}

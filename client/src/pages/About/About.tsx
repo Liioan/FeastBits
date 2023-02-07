@@ -4,6 +4,7 @@ import styles from './About.module.css';
 
 //. component
 import Header from '../../components/Header';
+import Slider from './Slider/Slider';
 
 //. assets
 import AboutImg from '../../assets/AboutImg.png';
@@ -24,7 +25,7 @@ export default function About() {
         <img src={AboutImg} alt='people in the kitchen making food' />
       </section>
       <Header text={'Our partnerships'} step={'h3'} />
-      {/* todo: slider with logos */}
+      <Slider />
     </main>
   );
 }
