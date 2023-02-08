@@ -13,7 +13,6 @@ const links = [
   { path: '/diets', text: 'diets', icon: 'cooking' },
   { path: '/meals', text: 'meals', icon: 'dinner_dining' },
   { path: '/blog', text: 'blog', icon: 'article' },
-  { path: '/contact', text: 'contact', icon: 'mail' },
   { path: '/account', text: 'account', icon: 'account_circle' },
 ];
 

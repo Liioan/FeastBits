@@ -48,3 +48,11 @@
 .githubLink:hover {
   filter: var(--black-to-light-blue);
 }
+
+@media screen and (max-width: 600px) {
+  .footer div {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
