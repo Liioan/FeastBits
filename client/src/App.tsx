@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 //. components
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 //. pages
 import Home from './pages/Home/Home';
@@ -20,6 +21,7 @@ function App() {
         <Route path='/contact' element={<>Contact</>} />
         <Route path='/account' element={<>Account</>} />
       </Routes>
+      <Footer />
     </div>
   );
 }

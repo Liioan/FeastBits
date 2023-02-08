@@ -9,4 +9,10 @@
   --light-blue: #55dde0;
   --white: #f5f5f5;
   --gradient: linear-gradient(90.31deg, #48e5c2 0%, #55dde0 100%);
+
+  /* filters */
+  --black-to-dark-blue: invert(51%) sepia(19%) saturate(950%) hue-rotate(152deg)
+    brightness(96%) contrast(86%);
+  --black-to-light-blue: invert(87%) sepia(19%) saturate(1203%)
+    hue-rotate(129deg) brightness(88%) contrast(99%);
 }

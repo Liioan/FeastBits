@@ -1,0 +1,50 @@
+.footer {
+  margin-top: 10rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer div {
+  padding-top: 5rem;
+  border-top: dashed 0.6rem var(--dark-blue);
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer p,
+.footer section {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.footer section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link {
+  transition: 0.2s ease;
+}
+
+.link:hover {
+  color: var(--light-blue);
+}
+
+.githubLink {
+  width: 3rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: var(--black-to-dark-blue);
+  transition: 0.2s ease;
+}
+
+.githubLink:hover {
+  filter: var(--black-to-light-blue);
+}
