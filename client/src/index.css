@@ -83,7 +83,7 @@ h3::after {
   position: absolute;
   content: '';
   display: block;
-  width: 105%;
+  width: calc(100% + 2rem);
   height: 50%;
   top: 60%;
   background: var(--gradient);
