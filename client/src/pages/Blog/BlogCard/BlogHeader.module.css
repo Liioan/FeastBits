@@ -1,0 +1,14 @@
+.blogHeader {
+  width: 100%;
+  color: var(--white);
+  font-size: 4rem;
+}
+
+.blogHeader::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.4rem;
+  border-radius: 99rem;
+  background: var(--gradient);
+}

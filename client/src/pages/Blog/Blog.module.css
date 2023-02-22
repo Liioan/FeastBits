@@ -1,0 +1,9 @@
+.blog {
+  gap: 10rem;
+}
+
+.blogWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}

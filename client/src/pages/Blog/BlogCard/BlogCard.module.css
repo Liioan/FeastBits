@@ -1,0 +1,39 @@
+.blogCard {
+  display: flex;
+  gap: 6.9rem;
+}
+
+.blogCard img {
+  height: 38rem;
+  max-width: 65rem;
+  width: 80vw;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.desc {
+  max-width: 68rem;
+  width: 80vw;
+  height: 38rem;
+  background-color: var(--black-alpha);
+  border-radius: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+}
+
+.desc p {
+  font-size: 2.8rem;
+  color: var(--white);
+}
+
+.timestamp {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
