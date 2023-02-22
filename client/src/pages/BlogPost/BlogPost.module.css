@@ -8,14 +8,30 @@
 .wrapper img {
   border-radius: 1rem;
   max-width: 75rem;
-  width: 80vw;
+  width: 40vw;
   height: 48rem;
   object-fit: cover !important;
 }
 
 .wrapper p {
   max-width: 78rem;
+  width: 50vw;
   height: auto;
   font-size: 3rem;
   color: white;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper p {
+    width: 80vw;
+    text-align: center;
+  }
+
+  .wrapper img {
+    width: 80vw;
+  }
 }
