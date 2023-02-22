@@ -10,6 +10,7 @@ import About from './pages/About/About';
 import Meals from './pages/Meals/Meals';
 import Diets from './pages/Diets/Diets';
 import Blog from './pages/Blog/Blog';
+import BlogPost from './pages/BlogPost/BlogPost';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path='/diets' element={<Diets />} />
         <Route path='/meals' element={<Meals />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:id' element={<div>XD</div>} />
+        <Route path='/blog/:id' element={<BlogPost />} />
         <Route path='/account' element={<>Account</>} />
       </Routes>
       <Footer />

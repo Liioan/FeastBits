@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/blog', [BlogsController::class, 'index']);
+Route::get('/blog/{id}', [BlogsController::class, 'show']);
 Route::post('/blog', [BlogsController::class, 'store']);
 //^ this is for testing only, will be protected later
 

@@ -1,0 +1,21 @@
+.wrapper {
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+
+.wrapper img {
+  border-radius: 1rem;
+  max-width: 75rem;
+  width: 80vw;
+  height: 48rem;
+  object-fit: cover !important;
+}
+
+.wrapper p {
+  max-width: 78rem;
+  height: auto;
+  font-size: 3rem;
+  color: white;
+}
