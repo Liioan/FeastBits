@@ -1,6 +1,7 @@
 <?php
 
 use App\http\Controllers\BlogsController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/homepageBlog', [HomepageController::class, 'showBlog']);
+//^ home page routes 
 
 Route::get('/blog', [BlogsController::class, 'index']);
 Route::get('/blog/{id}', [BlogsController::class, 'show']);
