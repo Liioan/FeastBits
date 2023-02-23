@@ -18,7 +18,7 @@ export default function Home() {
       </section>
       <section className={styles.homeSection}>
         <Header text='Our blog' step='h2' />
-        <BlogList isOnHomePage={true} />
+        <BlogList isOnHomePage={true} path={'homepageBlog'} />
       </section>
     </main>
   );

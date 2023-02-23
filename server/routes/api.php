@@ -2,6 +2,7 @@
 
 use App\http\Controllers\BlogsController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\OfferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,16 @@ Route::get('/homepageBlog', [HomepageController::class, 'showBlog']);
 
 Route::get('/blog', [BlogsController::class, 'index']);
 Route::get('/blog/{id}', [BlogsController::class, 'show']);
+
 Route::post('/blog', [BlogsController::class, 'store']);
+Route::post('/blog/{id}', [BlogsController::class, 'destroy']);
+//^ this is for testing only, will be protected later
+
+Route::get('/offer', [OfferController::class, 'index']);
+Route::get('/offer/{id}', [OfferController::class, 'show']);
+
+Route::post('/offer', [OfferController::class, 'store']);
+Route::post('/offer/{id}', [OfferController::class, 'destroy']);
 //^ this is for testing only, will be protected later
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -4,5 +4,5 @@ export interface BlogData {
   description: string;
   img_url: string;
   created_at: string;
-  updated_at: EpochTimeStamp;
+  updated_at: string;
 }

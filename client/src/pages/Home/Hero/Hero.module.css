@@ -7,6 +7,7 @@
   justify-content: center;
   padding: 8rem;
   background-image: url('../../../assets/HeroImg.png');
+  background-size: cover;
 }
 
 .container {

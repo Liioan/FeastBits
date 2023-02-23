@@ -23,6 +23,7 @@ function App() {
         <Route path='/meals' element={<Meals />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogPost />} />
+        <Route path='/offer/:id' element={<>XD</>} />
         <Route path='/account' element={<>Account</>} />
       </Routes>
       <Footer />

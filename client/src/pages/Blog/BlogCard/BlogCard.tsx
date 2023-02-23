@@ -35,7 +35,7 @@ export default function BlogCard({
             : description}
         </p>
         <Link to={`/blog/${id}`} className={styles.link}>
-          <GradientButton text={'read more'} />
+          <GradientButton text={'read more'} width={20} />
         </Link>
         <span className={styles.timestamp}>{date}</span>
       </div>

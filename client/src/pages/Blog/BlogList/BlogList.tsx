@@ -12,12 +12,13 @@ import styles from './BlogList.module.css';
 
 interface props {
   isOnHomePage: boolean;
+  path: string;
 }
 
-export default function BlogList({ isOnHomePage = false }: props) {
+export default function BlogList({ isOnHomePage, path }: props) {
   const [loading, data, error] = useAxios<BlogData[]>({
     method: 'GET',
-    url: `${baseUrl}/${isOnHomePage ? 'homepageBlog' : 'blog'}`,
+    url: `${baseUrl}/${path}`,
   });
 
   if (error.length) return <ErrorScreen errorMessage={error} />;
