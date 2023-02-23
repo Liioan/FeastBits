@@ -32,6 +32,7 @@ export default function OfferList({ isOnHomePage = false, path }: props) {
         {data &&
           data.map(blog => (
             <OfferCard
+              key={blog.id}
               id={blog.id}
               name={blog.name}
               description={blog.description}
