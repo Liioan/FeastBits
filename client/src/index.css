@@ -11,6 +11,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   font-size: 10px;
 }
 

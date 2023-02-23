@@ -1,0 +1,11 @@
+.blogWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .blogWrapper {
+    gap: 5rem;
+  }
+}

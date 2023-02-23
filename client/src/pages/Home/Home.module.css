@@ -1,0 +1,17 @@
+.homeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  align-items: center;
+}
+
+.homeSection::after {
+  content: '';
+  display: block;
+  width: 90vw;
+  border-bottom: 0.6rem dashed var(--dark-blue);
+}
+
+.homeSection:last-of-type::after {
+  display: none;
+}
