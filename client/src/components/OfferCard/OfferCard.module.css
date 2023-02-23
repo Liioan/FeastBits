@@ -90,3 +90,21 @@
   border-radius: 1rem;
   backdrop-filter: blur(1rem);
 }
+
+@media screen and (max-width: 550px) {
+  .offerCard {
+    text-align: center !important;
+    width: 90vw;
+    height: auto;
+  }
+
+  .wrapper {
+    gap: 2rem;
+  }
+
+  .innerWrapper {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
