@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useAxios } from '../../hooks/useAxios';
 import { BlogData } from '../../types/blog';
 import baseUrl from '../../global/BaseUrl';
@@ -24,7 +24,12 @@ export default function BlogPost() {
   return (
     <>
       {loading && <LoadingScreen />}
-      <main>
+      <main className={styles.blogPost}>
+        <Link to={'/blog'} className={styles.goBack}>
+          <span className='material-symbols-outlined'>chevron_left</span>
+          go back
+        </Link>
+
         <Header text={data ? data.title : 'title'} step={'h2'} />
 
         <section className={styles.wrapper}>

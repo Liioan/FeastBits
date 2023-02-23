@@ -29,6 +29,10 @@
   color: var(--white);
 }
 
+.link {
+  width: min-content;
+}
+
 .timestamp {
   position: absolute;
   bottom: 3rem;
@@ -50,6 +54,7 @@
 
   .desc {
     width: 80vw;
+    height: auto;
   }
 
   .desc p {
@@ -66,6 +71,10 @@
     height: auto;
     align-items: center;
     gap: 3rem;
+  }
+
+  .desc p {
+    text-align: center;
   }
 
   .timestamp {

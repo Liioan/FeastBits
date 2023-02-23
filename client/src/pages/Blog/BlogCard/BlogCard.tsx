@@ -34,7 +34,7 @@ export default function BlogCard({
             ? `${description.substring(0, 100)}...`
             : description}
         </p>
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${id}`} className={styles.link}>
           <GradientButton text={'read more'} />
         </Link>
         <span className={styles.timestamp}>{date}</span>
