@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/homepageBlog', [HomepageController::class, 'showBlog']);
+Route::get('/homepageSingle', [HomepageController::class, 'showSingle']);
+Route::get('/homepageSubs', [HomepageController::class, 'showSubs']);
 //^ home page routes 
 
 Route::get('/blog', [BlogsController::class, 'index']);

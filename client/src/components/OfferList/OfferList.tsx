@@ -15,8 +15,6 @@ interface props {
   path: string;
 }
 
-const now = new Date().toLocaleDateString();
-
 export default function OfferList({ isOnHomePage = false, path }: props) {
   const [loading, data, error] = useAxios<OfferData[]>({
     method: 'GET',
