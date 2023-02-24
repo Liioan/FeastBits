@@ -27,7 +27,8 @@ Route::post('/blog', [BlogsController::class, 'store']);
 Route::post('/blog/{id}', [BlogsController::class, 'destroy']);
 //^ this is for testing only, will be protected later
 
-Route::get('/offer', [OfferController::class, 'index']);
+Route::get('/offer/subs', [OfferController::class, 'showSubs']);
+Route::get('/offer/single', [OfferController::class, 'showSingle']);
 Route::get('/offer/{id}', [OfferController::class, 'show']);
 
 Route::post('/offer', [OfferController::class, 'store']);

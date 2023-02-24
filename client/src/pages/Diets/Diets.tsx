@@ -9,7 +9,7 @@ export default function Diets() {
   return (
     <main className={styles.diets}>
       <Header text={'Diets'} step={'h2'} />
-      <OfferList isOnHomePage={false} path={'offer'} />
+      <OfferList isOnHomePage={false} path={'offer/subs'} />
     </main>
   );
 }

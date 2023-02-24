@@ -28,18 +28,16 @@ export default function BlogList({ isOnHomePage, path }: props) {
       {loading && !isOnHomePage && <LoadingScreen />}
       <div className={styles.blogWrapper}>
         {data &&
-          data
-            .map(blog => (
-              <BlogCard
-                key={blog.id}
-                id={blog.id}
-                title={blog.title}
-                description={blog.description}
-                created_at={blog.created_at}
-                img_url={blog.img_url}
-              />
-            ))
-            .reverse()}
+          data.map(blog => (
+            <BlogCard
+              key={blog.id}
+              id={blog.id}
+              title={blog.title}
+              description={blog.description}
+              created_at={blog.created_at}
+              img_url={blog.img_url}
+            />
+          ))}
       </div>
     </>
   );

@@ -9,9 +9,13 @@ class OfferController extends Controller
 {
     //- get blog posts
 
-    public function index()
+    public function showSingle()
     {
-        return offer::all();
+        return offer::where('type', 'single')->get();
+    }
+    public function showSubs()
+    {
+        return offer::where('type', 'subscribtion')->get();
     }
 
     //- create offer post

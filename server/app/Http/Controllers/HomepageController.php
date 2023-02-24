@@ -11,6 +11,6 @@ class HomepageController extends Controller
 
     public function showBlog()
     {
-        return blog::paginate(3)->sortBy('created_at');
+        return blog::orderByDesc('created_at')->take(3)->get();
     }
 }

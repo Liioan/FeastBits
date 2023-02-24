@@ -11,7 +11,7 @@ class BlogsController extends Controller
 
     public function index()
     {
-        return blog::all();
+        return blog::orderByDesc('created_at')->get();
     }
 
     //- create blog post
