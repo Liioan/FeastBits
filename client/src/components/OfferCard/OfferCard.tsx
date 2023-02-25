@@ -3,6 +3,7 @@ import { OfferData } from '../../types/offer';
 
 //. components
 import GradientButton from '../Buttons/GradientButton';
+import PriceTag from '../PriceTag/PriceTag';
 
 //. styles
 import styles from './OfferCard.module.css';
@@ -17,6 +18,8 @@ interface props {
   img_url: string;
 }
 
+const tenDaysInMiliseconds = 864000000;
+
 export default function OfferCard({
   id,
   name,
@@ -30,7 +33,7 @@ export default function OfferCard({
 
   return (
     <div className={styles.offerCard}>
-      {!(createdAtDate + 864000000 < new Date().getTime()) && (
+      {!(createdAtDate + tenDaysInMiliseconds < new Date().getTime()) && (
         <span className={`material-symbols-outlined ${styles.newOffer}`}>
           fiber_new
         </span>
@@ -38,15 +41,13 @@ export default function OfferCard({
       <img src={img_url} alt='' />
       <div className={styles.wrapper}>
         <h5 className={styles.offerName}>{name}</h5>
-        <p>{description}</p>
+        <p>
+          {description.length > 100
+            ? `${description.substring(0, 100)}...`
+            : description}
+        </p>
         <div className={styles.innerWrapper}>
-          {!discount_price && <div className={styles.price}>{price}$</div>}
-          {discount_price && (
-            <div className={styles.discountPrice}>
-              <span className={styles.oldPrice}>{price}$</span>
-              <span className={styles.newPrice}>{discount_price}$</span>
-            </div>
-          )}
+          <PriceTag price={price} discount_price={discount_price} />
 
           <Link to={`/offer/${id}`}>
             <GradientButton

@@ -1,0 +1,95 @@
+.wrapper {
+  margin-top: 15rem;
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+}
+
+.wrapper img {
+  max-width: 75rem;
+  width: 40vw;
+  height: 48rem;
+  object-fit: cover !important;
+  border-bottom: 1.5rem solid;
+  border-image: var(--gradient);
+  border-image-slice: 60 30;
+}
+
+.wrapper p {
+  max-width: 55rem;
+  width: 60vw;
+  height: auto;
+  font-size: 3rem;
+  color: white;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 48rem;
+}
+
+.desc h2 {
+  margin: 0 !important;
+}
+
+.innerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.imgWrapper {
+  position: relative;
+}
+
+.badges {
+  background-color: var(--black-alpha);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+}
+
+.badge {
+  color: var(--light-blue);
+  font-size: 4.8rem !important;
+}
+
+.badgesMeaning {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--dark-blue) !important;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.badgeMeaning {
+  font-size: 3rem !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper p {
+    width: 80vw;
+    text-align: center;
+  }
+
+  .wrapper img {
+    width: 80vw;
+  }
+}
+
+.offer {
+  position: relative;
+  justify-content: center;
+}

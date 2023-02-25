@@ -11,6 +11,7 @@ import Meals from './pages/Meals/Meals';
 import Diets from './pages/Diets/Diets';
 import Blog from './pages/Blog/Blog';
 import BlogPost from './pages/BlogPost/BlogPost';
+import OfferPage from './pages/OfferPage/OfferPage';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path='/meals' element={<Meals />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogPost />} />
-        <Route path='/offer/:id' element={<>XD</>} />
+        <Route path='/offer/:id' element={<OfferPage />} />
         <Route path='/account' element={<>Account</>} />
       </Routes>
       <Footer />
