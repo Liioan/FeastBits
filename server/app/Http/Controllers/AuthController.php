@@ -24,9 +24,9 @@ class AuthController extends Controller
       'password' => bcrypt($fields['password']),
     ]);
 
-    if ($fields['email'] == \Config::get('env.adminMail')) {
+    if ($fields['email'] == env('ADMIN_EMAIL')) {
       $user = User::find($user['id']);
-      $user->isAdmin = '1';
+      $user->is_admin = '1';
       $user->save();
     }
 
