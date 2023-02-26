@@ -12,6 +12,8 @@ import Diets from './pages/Diets/Diets';
 import Blog from './pages/Blog/Blog';
 import BlogPost from './pages/BlogPost/BlogPost';
 import OfferPage from './pages/OfferPage/OfferPage';
+import Login from './pages/Login/Login';
+import SignUp from './pages/SignUp/SignUp';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogPost />} />
         <Route path='/offer/:id' element={<OfferPage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/SignUp' element={<SignUp />} />
         <Route path='/account' element={<>Account</>} />
       </Routes>
       <Footer />
