@@ -67,3 +67,9 @@
   font-weight: 700;
   cursor: pointer;
 }
+
+.error {
+  color: var(--red);
+  font-size: 2rem;
+  height: 2rem;
+}

@@ -14,6 +14,7 @@ import BlogPost from './pages/BlogPost/BlogPost';
 import OfferPage from './pages/OfferPage/OfferPage';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
+import Account from './pages/Account/Account';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
         <Route path='/offer/:id' element={<OfferPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/account' element={<>Account</>} />
+        <Route path='/account' element={<Account />} />
+        <Route path='/change-password' element={<>change password</>} />
       </Routes>
       <Footer />
     </div>
