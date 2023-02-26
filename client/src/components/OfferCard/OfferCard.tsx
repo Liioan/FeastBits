@@ -16,6 +16,7 @@ interface props {
   discount_price: number | null;
   created_at: string;
   img_url: string;
+  type: string;
 }
 
 const tenDaysInMiliseconds = 864000000;
@@ -28,6 +29,7 @@ export default function OfferCard({
   discount_price,
   created_at,
   img_url,
+  type,
 }: props) {
   let createdAtDate = new Date(created_at).getTime();
 
@@ -51,7 +53,7 @@ export default function OfferCard({
 
           <Link to={`/offer/${id}`}>
             <GradientButton
-              text={'Order now'}
+              text={type === 'subscribtion' ? 'Subscribe' : 'Order now'}
               width={discount_price ? 25 : 27}
             />
           </Link>

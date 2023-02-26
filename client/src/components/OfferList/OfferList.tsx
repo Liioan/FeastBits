@@ -28,16 +28,17 @@ export default function OfferList({ isOnHomePage = false, path }: props) {
       {loading && !isOnHomePage && <LoadingScreen />}
       <div className={styles.offerWrapper}>
         {data &&
-          data.map(blog => (
+          data.map(offer => (
             <OfferCard
-              key={blog.id}
-              id={blog.id}
-              name={blog.name}
-              description={blog.description}
-              price={blog.price}
-              discount_price={blog.discount_price}
-              created_at={blog.created_at}
-              img_url={blog.img_url}
+              key={offer.id}
+              id={offer.id}
+              name={offer.name}
+              description={offer.description}
+              price={offer.price}
+              discount_price={offer.discount_price}
+              created_at={offer.created_at}
+              img_url={offer.img_url}
+              type={offer.type}
             />
           ))}
       </div>
