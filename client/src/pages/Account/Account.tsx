@@ -1,6 +1,8 @@
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useAxios } from '../../hooks/useAxios';
+import baseUrl from '../../global/BaseUrl';
 
 //. assets
 import accountCircle from '../../assets/accountCircle.png';
@@ -16,7 +18,18 @@ import styles from './Account.module.css';
 export default function Account() {
   const context = useAuth();
   if (!context) return null;
-  const { user, resetUser } = context;
+  const { user, token, resetUser } = context;
+
+  const [loading, data, error, request] = useAxios(
+    {
+      method: 'POST',
+      url: `${baseUrl}/logout`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+    false
+  );
 
   const navigate = useNavigate();
 
@@ -27,8 +40,10 @@ export default function Account() {
   if (user === undefined) return null;
 
   const handleLogOut = () => {
+    request();
     resetUser();
     navigate('/');
+    window.location.reload();
   };
 
   return (

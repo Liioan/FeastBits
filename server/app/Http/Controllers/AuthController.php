@@ -24,6 +24,12 @@ class AuthController extends Controller
       'password' => bcrypt($fields['password']),
     ]);
 
+    if ($fields['email'] == \Config::get('env.adminMail')) {
+      $user = User::find($user['id']);
+      $user->isAdmin = '1';
+      $user->save();
+    }
+
     $token = $user->createToken('myapptoken')->plainTextToken;
 
     $response = [

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useAxios } from '../../hooks/useAxios';
@@ -15,7 +15,7 @@ import styles from './Login.module.css';
 export default function Login() {
   const context = useAuth();
   if (!context) return null;
-  const { setLocalUser, user } = context;
+  const { setLocalUser } = context;
 
   const navigate = useNavigate();
 
@@ -49,10 +49,6 @@ export default function Login() {
 
   const login = () => {
     request();
-    if (data) {
-      setLocalUser(data.user, data.token);
-      navigate(-1);
-    }
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -70,6 +66,13 @@ export default function Login() {
       setValidationError(err.errors[0].message);
     }
   };
+
+  useEffect(() => {
+    if (data && !loading) {
+      setLocalUser(data.user, data.token);
+      navigate('/account');
+    }
+  }, [data, loading]);
 
   return (
     <main className={styles.login}>

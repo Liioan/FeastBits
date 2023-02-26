@@ -6,7 +6,7 @@ export const useAxios = <T>(
   loadOnStart: boolean = true
 ): [boolean, T | undefined, string, () => void] => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<T>();
+  const [data, setData] = useState<T | undefined>();
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -18,6 +18,7 @@ export const useAxios = <T>(
   };
 
   const sendRequest = () => {
+    setData(undefined);
     setLoading(true);
     axios(config)
       .then(response => {
