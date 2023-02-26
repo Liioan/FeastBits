@@ -5,14 +5,18 @@ interface ContextProviderProps {
   children: JSX.Element;
 }
 
+type Token = string | undefined;
+
 interface ContextType {
   user: User | undefined;
-  setLocalUser: (user: User) => void;
+  token: Token;
+  setLocalUser: (user: User, token: Token) => void;
   resetUser: () => void;
 }
 
 const AuthContext = createContext<ContextType | null>(null);
-const localStorageName = 'user';
+const localStorageUser = 'user';
+const localStorageToken = 'token';
 
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -20,30 +24,40 @@ export const useAuth = () => {
 
 const useLocalUser = () => {
   const [user, setUser] = useState<User>(() => {
-    const currentUser = localStorage.getItem('user');
+    const currentUser = localStorage.getItem(localStorageUser);
     if (!currentUser) return undefined;
     return JSON.parse(currentUser);
   });
 
-  const setLocalUser = useCallback((user: User) => {
+  const [token, setToken] = useState<Token>(() => {
+    const currentToken = localStorage.getItem(localStorageToken);
+    if (!currentToken) return undefined;
+    return JSON.parse(currentToken);
+  });
+
+  const setLocalUser = useCallback((user: User, token: Token) => {
     setUser(user);
-    localStorage.setItem(localStorageName, JSON.stringify(user));
+    setToken(token);
+    localStorage.setItem(localStorageUser, JSON.stringify(user));
+    localStorage.setItem(localStorageToken, JSON.stringify(token));
   }, []);
 
   const resetUser = useCallback(() => {
-    localStorage.removeItem(localStorageName);
+    localStorage.removeItem(localStorageUser);
+    localStorage.removeItem(localStorageToken);
   }, []);
 
-  return { user, setLocalUser, resetUser };
+  return { user, setLocalUser, resetUser, token };
 };
 
 export const AuthProvider = ({ children }: ContextProviderProps) => {
-  const { user, setLocalUser, resetUser } = useLocalUser();
+  const { user, token, setLocalUser, resetUser } = useLocalUser();
 
   return (
     <AuthContext.Provider
       value={{
         user,
+        token,
         setLocalUser,
         resetUser,
       }}

@@ -25,8 +25,6 @@ class AuthController extends Controller
     ]);
 
     $token = $user->createToken('myapptoken')->plainTextToken;
-    $user->remember_token = $token;
-    $user->save();
 
     $response = [
       'user' => $user,
@@ -53,10 +51,9 @@ class AuthController extends Controller
     }
 
     $token = $user->createToken('myapptoken')->plainTextToken;
-    $user->remember_token = $token;
     $response = [
       'user' => $user,
-      // 'token' => $token
+      'token' => $token
     ];
 
     return response($response, 201);

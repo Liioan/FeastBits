@@ -23,7 +23,10 @@ export default function Login() {
   const [email, setEmail] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
 
-  const [loading, data, error, request] = useAxios<{ user: User }>(
+  const [loading, data, error, request] = useAxios<{
+    user: User;
+    token: string;
+  }>(
     {
       method: 'POST',
       url: `${baseUrl}/login`,
@@ -47,7 +50,7 @@ export default function Login() {
   const login = () => {
     request();
     if (data) {
-      setLocalUser(data.user);
+      setLocalUser(data.user, data.token);
       navigate(-1);
     }
   };
