@@ -41,10 +41,16 @@ export default function Account() {
 
   const handleLogOut = () => {
     request();
-    resetUser();
-    navigate('/');
-    window.location.reload();
+    // window.location.reload();
   };
+
+  useEffect(() => {
+    if (!loading && data) {
+      resetUser();
+      navigate('/');
+      location.reload();
+    }
+  }, [data, loading]);
 
   return (
     <main>
