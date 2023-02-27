@@ -43,9 +43,9 @@
 .newOffer {
   position: absolute;
   color: var(--green-blue);
-  top: -4rem;
+  top: -3rem;
   right: 1.2rem;
-  font-size: 8.4rem !important;
+  font-size: 6.4rem !important;
   background-color: var(--black-alpha);
   border-radius: 1rem;
   backdrop-filter: blur(1rem);

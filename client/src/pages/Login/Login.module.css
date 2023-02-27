@@ -8,13 +8,14 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
+  max-width: 76rem;
+  width: 90vw;
 }
 
 .border {
+  width: 100%;
   border: 0.7rem solid var(--dark-blue);
   border-radius: 1rem;
-  max-width: 76rem;
-  width: 60vw;
   height: 15rem;
   display: flex;
   justify-content: center;
@@ -72,4 +73,16 @@
   color: var(--red);
   font-size: 2rem;
   height: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .legend {
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .link {
+    text-align: center;
+  }
 }
