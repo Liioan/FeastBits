@@ -5,11 +5,11 @@ interface ContextProviderProps {
   children: JSX.Element;
 }
 
-type Token = string | undefined;
+type Token = string;
 
 interface ContextType {
   user: User | undefined;
-  token: Token;
+  token: Token | undefined;
   setLocalUser: (user: User, token: Token) => void;
   resetUser: () => void;
 }
@@ -23,13 +23,13 @@ export const useAuth = () => {
 };
 
 const useLocalUser = () => {
-  const [user, setUser] = useState<User>(() => {
+  const [user, setUser] = useState<User | undefined>(() => {
     const currentUser = localStorage.getItem(localStorageUser);
     if (!currentUser) return undefined;
     return JSON.parse(currentUser);
   });
 
-  const [token, setToken] = useState<Token>(() => {
+  const [token, setToken] = useState<Token | undefined>(() => {
     const currentToken = localStorage.getItem(localStorageToken);
     if (!currentToken) return undefined;
     return JSON.parse(currentToken);
@@ -43,6 +43,8 @@ const useLocalUser = () => {
   }, []);
 
   const resetUser = useCallback(() => {
+    setUser(undefined);
+    setToken(undefined);
     localStorage.removeItem(localStorageUser);
     localStorage.removeItem(localStorageToken);
   }, []);

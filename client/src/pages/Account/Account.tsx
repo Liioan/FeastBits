@@ -41,14 +41,12 @@ export default function Account() {
 
   const handleLogOut = () => {
     request();
-    // window.location.reload();
   };
 
   useEffect(() => {
     if (!loading && data) {
       resetUser();
       navigate('/');
-      location.reload();
     }
   }, [data, loading]);
 
@@ -73,8 +71,11 @@ export default function Account() {
             </div>
           </div>
           <div className={styles.accountOperations}>
-            <Link to={'/change-password'}>
-              <GradientButton text={'change password'} width={40} />
+            <Link to={user.is_admin ? '/admin' : '/change-password'}>
+              <GradientButton
+                text={user.is_admin ? 'admin panel' : 'change password'}
+                width={40}
+              />
             </Link>
             <RedButton
               text={'log out'}

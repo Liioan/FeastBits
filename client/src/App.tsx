@@ -15,6 +15,7 @@ import OfferPage from './pages/OfferPage/OfferPage';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Account from './pages/Account/Account';
+import AdminPanel from './pages/AdminPanel/AdminPanel';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/account' element={<Account />} />
+        <Route path='/admin' element={<AdminPanel />} />
         <Route path='/change-password' element={<>change password</>} />
       </Routes>
       <Footer />
