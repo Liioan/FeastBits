@@ -26,16 +26,14 @@ Route::get('/homepageSubs', [HomepageController::class, 'showSubs']);
 Route::get('/blog', [BlogsController::class, 'index']);
 Route::get('/blog/{id}', [BlogsController::class, 'show']);
 
-Route::post('/blog', [BlogsController::class, 'store']);
-Route::post('/blog/{id}', [BlogsController::class, 'destroy']);
+
 //^ this is for testing only, will be protected later
 
 Route::get('/offer/subs', [OfferController::class, 'showSubs']);
 Route::get('/offer/single', [OfferController::class, 'showSingle']);
 Route::get('/offer/{id}', [OfferController::class, 'show']);
 
-Route::post('/offer', [OfferController::class, 'store']);
-Route::post('/offer/{id}', [OfferController::class, 'destroy']);
+
 //^ this is for testing only, will be protected later
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -44,4 +42,19 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::group(
+        ['middleware' => ['isAdmin']],
+        function () {
+            // Admin routes
+            // code for middleware and routes in courtesy of https://github.com/matibox
+            Route::post('/offer', [OfferController::class, 'store']);
+            Route::delete('/offer/{id}', [OfferController::class, 'destroy']);
+            Route::put('/offer/{id}', [OfferController::class, 'update']);
+
+            Route::post('/blog', [BlogsController::class, 'store']);
+            Route::post('/blog/{id}', [BlogsController::class, 'destroy']);
+            Route::put('/blog/{id}', [BlogsController::class, 'update']);
+        }
+    );
 });
