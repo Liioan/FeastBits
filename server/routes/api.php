@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::put('/offer/{id}', [OfferController::class, 'update']);
 
             Route::post('/blog', [BlogsController::class, 'store']);
-            Route::post('/blog/{id}', [BlogsController::class, 'destroy']);
+            Route::delete('/blog/{id}', [BlogsController::class, 'destroy']);
             Route::put('/blog/{id}', [BlogsController::class, 'update']);
         }
     );

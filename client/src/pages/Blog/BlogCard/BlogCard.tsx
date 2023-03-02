@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../../context/AuthContext';
+import { useAxios } from '../../../hooks/useAxios';
+import baseUrl from '../../../global/BaseUrl';
+import { useEffect } from 'react';
 
 //. components
 import BlogHeader from './BlogHeader';
 import GradientButton from '../../../components/Buttons/GradientButton';
+import DeleteButton from '../../../components/DeleteButton/DeleteButton';
 
 //. styles
 import styles from './BlogCard.module.css';
@@ -24,6 +29,15 @@ export default function BlogCard({
 }: props) {
   let date = new Date(created_at).toLocaleDateString();
 
+  const context = useAuth();
+  if (!context) return null;
+  const { user } = context;
+
+  let isUserAdmin = false;
+  if (user && user.is_admin) {
+    isUserAdmin = true;
+  }
+
   return (
     <section className={styles.blogCard}>
       <img src={img_url} alt='' />
@@ -34,9 +48,12 @@ export default function BlogCard({
             ? `${description.substring(0, 100)}...`
             : description}
         </p>
-        <Link to={`/blog/${id}`} className={styles.link}>
-          <GradientButton text={'read more'} width={20} />
-        </Link>
+        <div className={styles.buttonsWrapper}>
+          {isUserAdmin && <DeleteButton path={`blog/${id}`} />}
+          <Link to={`/blog/${id}`} className={styles.link}>
+            <GradientButton text={'read more'} width={20} />
+          </Link>
+        </div>
         <span className={styles.timestamp}>{date}</span>
       </div>
     </section>
