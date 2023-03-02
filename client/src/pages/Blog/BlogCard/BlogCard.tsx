@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../../context/AuthContext';
-import { useAxios } from '../../../hooks/useAxios';
-import baseUrl from '../../../global/BaseUrl';
-import { useEffect } from 'react';
+import checkForAdmin from '../../../global/IsUserAdmin';
 
 //. components
 import BlogHeader from './BlogHeader';
@@ -29,14 +26,7 @@ export default function BlogCard({
 }: props) {
   let date = new Date(created_at).toLocaleDateString();
 
-  const context = useAuth();
-  if (!context) return null;
-  const { user } = context;
-
-  let isUserAdmin = false;
-  if (user && user.is_admin) {
-    isUserAdmin = true;
-  }
+  const isUserAdmin = checkForAdmin();
 
   return (
     <section className={styles.blogCard}>

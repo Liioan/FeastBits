@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '../../../context/IsMobileContext';
 import { useAuth } from '../../../context/AuthContext';
+import checkForAdmin from '../../../global/IsUserAdmin';
 
 //. components
 import { Button } from './Button';
@@ -18,14 +19,7 @@ const links = [
 ];
 
 export function DesktopMenu() {
-  const context = useAuth();
-  if (!context) return null;
-  const { user } = context;
-
-  let isUserAdmin = false;
-  if (user && user.is_admin) {
-    isUserAdmin = true;
-  }
+  const isUserAdmin = checkForAdmin();
 
   return (
     <motion.div
@@ -58,15 +52,7 @@ export function DesktopMenu() {
 
 export function MobileMenu() {
   const { isMenuOpened, setIsMenuOpened } = useIsMobile();
-
-  const context = useAuth();
-  if (!context) return null;
-  const { user } = context;
-
-  let isUserAdmin = false;
-  if (user && user.is_admin) {
-    isUserAdmin = true;
-  }
+  const isUserAdmin = checkForAdmin();
 
   return (
     <div className={styles.wrapper}>
