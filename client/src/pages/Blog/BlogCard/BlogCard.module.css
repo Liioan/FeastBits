@@ -90,3 +90,9 @@
     bottom: 1rem;
   }
 }
+
+@media screen and (max-width: 380px) {
+  .buttonsWrapper {
+    flex-direction: column;
+  }
+}

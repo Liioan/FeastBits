@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '../../../context/IsMobileContext';
-import { useAuth } from '../../../context/AuthContext';
 import checkForAdmin from '../../../global/IsUserAdmin';
 
 //. components
@@ -68,7 +67,11 @@ export function MobileMenu() {
             transition={{ duration: 0.5, ease: 'anticipate' }}
           >
             {isUserAdmin && (
-              <NavLink to={'/admin'} className={styles.navLink}>
+              <NavLink
+                to={'/admin'}
+                className={styles.navLink}
+                onClick={() => setIsMenuOpened(!isMenuOpened)}
+              >
                 admin panel
                 <span className='material-symbols-outlined'>
                   admin_panel_settings

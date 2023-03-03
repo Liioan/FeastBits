@@ -80,7 +80,7 @@ h3 > span {
 
 @media screen and (max-width: 650px) {
   h2 {
-    font-size: 3.6rem !important;
+    font-size: 3.5rem !important;
     text-align: center;
   }
   h3 {
@@ -88,8 +88,10 @@ h3 > span {
   }
   h2 > span,
   h3 > span {
+    padding: 1rem;
     max-width: 30rem;
-    width: 80vw;
+    /* width: 80vw; */
+    width: calc(auto + 1rem);
   }
 }
 

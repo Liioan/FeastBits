@@ -8,7 +8,7 @@ interface props {
 
 export default function GradientButton({ text, width }: props) {
   return (
-    <button className={styles.btn} style={{ width: `${width}rem` }}>
+    <button className={styles.btn} style={{ maxWidth: `${width}rem` }}>
       {text}
     </button>
   );
