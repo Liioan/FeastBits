@@ -21,6 +21,7 @@ export default function SingUp() {
 
   const [validationError, setValidationError] = useState<string | null>(null);
   const [name, setName] = useState<string | undefined>();
+  const [surname, setSurname] = useState<string | undefined>();
   const [email, setEmail] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
   const [confirm, setConfirm] = useState<string | undefined>();
@@ -35,6 +36,7 @@ export default function SingUp() {
       headers: { Accept: 'application/json' },
       data: {
         name: name,
+        surname: surname,
         email: email,
         password: password,
         password_confirmation: confirm,
@@ -46,6 +48,7 @@ export default function SingUp() {
   const loginSchema = z
     .object({
       name: z.string({ required_error: 'Name is required' }).min(1),
+      surname: z.string({ required_error: 'Surname is required' }).min(1),
       email: z
         .string({ required_error: 'Email is required' })
         .email({ message: 'Invalid email' }),
@@ -68,6 +71,7 @@ export default function SingUp() {
   const handleSubmit = (e: FormEvent) => {
     const userData = {
       name: name,
+      surname: surname,
       email: email,
       password: password,
       confirm: confirm,
@@ -106,6 +110,17 @@ export default function SingUp() {
             id='name'
             className={styles.input}
             onChange={e => setName(e.target.value)}
+          />
+        </fieldset>
+        <fieldset className={styles.border}>
+          <legend className={styles.legend}>
+            <label htmlFor='surname'>surname</label>
+          </legend>
+          <input
+            type='text'
+            id='surname'
+            className={styles.input}
+            onChange={e => setSurname(e.target.value)}
           />
         </fieldset>
         <fieldset className={styles.border}>

@@ -78,7 +78,7 @@ export default function Login() {
     <main className={styles.login}>
       <Header text={'Login'} step={'h2'} />
       <p className={styles.link}>
-        Don't have an account? <Link to={'/signup'}>Sing up</Link>
+        Don't have an account? <Link to={'/signup'}>Sign up</Link>
       </p>
       <form className={styles.form} onSubmit={e => handleSubmit(e)}>
         <fieldset className={styles.border}>
@@ -103,7 +103,7 @@ export default function Login() {
             onChange={e => setPassword(e.target.value)}
           />
         </fieldset>
-        <span className={styles.error}>{validationError}</span>
+        <span className={styles.error}>{validationError || error}</span>
         <input type='submit' value='Login' className={styles.submit} />
       </form>
     </main>

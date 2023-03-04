@@ -58,8 +58,8 @@ export default function Account() {
         <section className={styles.innerWrapper}>
           <div className={styles.userInfo}>
             <div className={styles.info}>
-              <span className={styles.label}>name:</span>
-              <p>{user.name}</p>
+              <span className={styles.label}>name and surname:</span>
+              <p>{`${user.name} ${user.surname}`}</p>
             </div>
             <div className={styles.info}>
               <span className={styles.label}>email:</span>
