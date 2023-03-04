@@ -36,4 +36,9 @@ class BlogsController extends Controller
     {
         return blog::destroy($id);
     }
+
+    public function search($title)
+    {
+        return blog::where('title', 'like', '%' . $title . '%')->get();
+    }
 }

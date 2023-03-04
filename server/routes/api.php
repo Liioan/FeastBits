@@ -25,7 +25,7 @@ Route::get('/homepageSubs', [HomepageController::class, 'showSubs']);
 
 Route::get('/blog', [BlogsController::class, 'index']);
 Route::get('/blog/{id}', [BlogsController::class, 'show']);
-
+Route::get('/blog/search/{name}', [BlogsController::class, 'search']);
 
 //^ this is for testing only, will be protected later
 
