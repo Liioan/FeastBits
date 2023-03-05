@@ -1,6 +1,5 @@
 .search {
   position: relative;
-  background-color: var(--black);
   max-width: 140rem;
   width: 90vw;
   height: 65rem;
@@ -17,7 +16,7 @@
   align-items: center;
   gap: 1rem;
   top: 1rem;
-  right: 3rem;
+  right: 0;
 }
 
 .searchBar input {
@@ -58,6 +57,8 @@
 }
 
 .innerWrapper {
+  background-color: var(--black);
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
