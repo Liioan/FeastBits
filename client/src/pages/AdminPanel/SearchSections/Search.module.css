@@ -3,7 +3,7 @@
   background-color: var(--black);
   max-width: 140rem;
   width: 90vw;
-  height: 67rem;
+  height: 65rem;
   border-radius: 1rem !important;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  top: 4.5rem;
+  top: 1rem;
   right: 3rem;
 }
 
@@ -62,7 +62,7 @@
   flex-direction: column;
   gap: 2rem;
   overflow: auto;
-  height: 80%;
+  height: 86%;
   padding: 4rem;
 }
 
@@ -82,7 +82,8 @@
   background: var(--light-blue);
 }
 
-.adminBlogCard {
+.adminBlogCard,
+.adminOfferCard {
   background-color: var(--black-alpha);
   padding-right: 2rem;
   border-radius: 1rem;
@@ -104,7 +105,8 @@
   gap: 1rem;
 }
 
-.adminBlogCard img {
+.adminBlogCard img,
+.adminOfferCard img {
   width: 30rem;
   height: 10rem;
   object-fit: cover;
@@ -112,8 +114,34 @@
   border-radius: 1rem 0 0 1rem;
 }
 
-.adminBlogCard span {
+.adminBlogCard span,
+.adminOfferCard span {
   font-size: 3.2rem;
   color: var(--white);
   font-weight: 700;
+}
+
+.price span {
+  color: var(--green-blue);
+}
+
+.price {
+  background-color: var(--black-alpha);
+  width: 15rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.discounted {
+  color: var(--dark-blue) !important;
+  text-decoration: line-through;
+}
+
+.container {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-between;
 }

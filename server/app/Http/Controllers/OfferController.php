@@ -18,6 +18,11 @@ class OfferController extends Controller
         return offer::where('type', 'subscribtion')->get();
     }
 
+    public function index()
+    {
+        return offer::all();
+    }
+
     //- create offer post
     public function store(Request $request)
     {
@@ -43,5 +48,10 @@ class OfferController extends Controller
     public function destroy($id)
     {
         return offer::destroy($id);
+    }
+
+    public function search($name)
+    {
+        return offer::where('name', 'like', '%' . $name . '%')->get();
     }
 }

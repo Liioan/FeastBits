@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 
 //. components
 import Header from '../../components/Header';
-import { SearchBlogs } from './SearchSections/Search';
+import { SearchBlogs, SearchOffers } from './SearchSections/Search';
 
 //. styles
 import styles from './AdminPanel.module.css';
@@ -27,6 +27,8 @@ export default function AdminPanel() {
       <Header text={'Admin Panel'} step={'h2'} />
       <Header text='blog' step='h3' />
       <SearchBlogs />
+      <Header text='offers' step='h3' />
+      <SearchOffers />
     </main>
   );
 }

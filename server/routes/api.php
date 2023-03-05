@@ -29,8 +29,10 @@ Route::get('/blog/search/{name}', [BlogsController::class, 'search']);
 
 //^ this is for testing only, will be protected later
 
+Route::get('/offer', [OfferController::class, 'index']);
 Route::get('/offer/subs', [OfferController::class, 'showSubs']);
 Route::get('/offer/single', [OfferController::class, 'showSingle']);
+Route::get('/offer/search/{name}', [OfferController::class, 'search']);
 Route::get('/offer/{id}', [OfferController::class, 'show']);
 
 
