@@ -6,6 +6,7 @@ import { useState, useEffect, FormEvent } from 'react';
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
 import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import EditButton from '../../../components/EditButton/EditButton';
 
 //. styles
 import styles from './Search.module.css';
@@ -50,8 +51,7 @@ export function SearchBlogs() {
                   <span>{blog.title}</span>
                 </div>
                 <div className={styles.buttons}>
-                  <DeleteButton path={`blog/${blog.id}`} />
-                  {/* edit button here ^ */}
+                  <EditButton />
                   <DeleteButton path={`blog/${blog.id}`} />
                 </div>
               </div>
@@ -113,8 +113,7 @@ export function SearchOffers() {
                     )}
                   </div>
                   <div className={styles.buttons}>
-                    <DeleteButton path={`offer/${offer.id}`} />
-                    {/* edit button here ^ */}
+                    <EditButton />
                     <DeleteButton path={`offer/${offer.id}`} />
                   </div>
                 </div>
