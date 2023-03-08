@@ -104,3 +104,9 @@
     font-size: 3.6rem;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .innerWrapper {
+    flex-direction: column;
+  }
+}
