@@ -1,4 +1,4 @@
-.search {
+.topBar {
   position: relative;
   max-width: 140rem;
   width: 90vw;
@@ -17,6 +17,34 @@
   gap: 1rem;
   top: 1rem;
   right: 0;
+}
+
+.addNew {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+}
+
+.addNew button {
+  cursor: pointer;
+  color: var(--dark-blue);
+  border: 0.2rem solid var(--green-blue);
+  background-color: var(--dark-gray);
+  border-radius: 1rem;
+  height: 6rem;
+  width: 6rem;
+  transition: 0.2s ease;
+}
+
+.addNew button:hover {
+  border-color: var(--light-blue);
+  color: var(--light-blue);
+}
+
+.addNew button:focus {
+  outline: transparent;
+  border-color: var(--light-blue);
+  color: var(--light-blue) !important;
 }
 
 .searchBar input {
@@ -65,22 +93,6 @@
   overflow: auto;
   height: 86%;
   padding: 4rem;
-}
-
-.innerWrapper::-webkit-scrollbar {
-  width: 15px;
-}
-
-.innerWrapper::-webkit-scrollbar-track {
-  background: var(--black-alpha);
-}
-
-.innerWrapper::-webkit-scrollbar-thumb {
-  background: var(--green-blue);
-}
-
-.innerWrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--light-blue);
 }
 
 .adminBlogCard,

@@ -43,6 +43,22 @@ a {
   filter: none;
 }
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black-alpha);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-blue);
+}
+
 main {
   display: flex;
   flex-direction: column;

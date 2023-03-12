@@ -2,17 +2,21 @@ import { useAxios } from '../../../hooks/useAxios';
 import baseUrl from '../../../global/BaseUrl';
 import { BlogData } from '../../../types/blog';
 import { OfferData } from '../../../types/offer';
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
+
+//. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
 import DeleteButton from '../../../components/DeleteButton/DeleteButton';
 import EditButton from '../../../components/EditButton/EditButton';
+import { AddBlog } from '../AddSections/Add';
 
 //. styles
-import styles from './Search.module.css';
+import styles from './Sections.module.css';
 
-export function SearchBlogs() {
+export function BlogSection() {
   const [searchValue, setSearchValue] = useState<string | null>(null);
+  const [addingBlog, setAddingBlog] = useState(false);
 
   const [loading, data, error, request] = useAxios<BlogData[]>({
     method: 'GET',
@@ -29,7 +33,16 @@ export function SearchBlogs() {
   return (
     <>
       {loading && <LoadingScreen />}
-      <section className={styles.search}>
+      {addingBlog && <AddBlog close={setAddingBlog} refresh={request} />}
+      <section className={styles.topBar}>
+        <section className={styles.addNew}>
+          <button
+            className='material-symbols-outlined'
+            onClick={() => setAddingBlog(!addingBlog)}
+          >
+            {addingBlog ? 'close' : 'add'}
+          </button>
+        </section>
         <form className={styles.searchBar} onSubmit={e => handleSubmit(e)}>
           <input
             type='text'
@@ -62,7 +75,7 @@ export function SearchBlogs() {
   );
 }
 
-export function SearchOffers() {
+export function OfferSection() {
   const [searchValue, setSearchValue] = useState<string | null>(null);
 
   const [loading, data, error, request] = useAxios<OfferData[]>({
@@ -80,7 +93,10 @@ export function SearchOffers() {
   return (
     <>
       {loading && <LoadingScreen />}
-      <section className={styles.search}>
+      <section className={styles.topBar}>
+        <section className={styles.addNew}>
+          <button className='material-symbols-outlined'>add</button>
+        </section>
         <form className={styles.searchBar} onSubmit={e => handleSubmit(e)}>
           <input
             type='text'

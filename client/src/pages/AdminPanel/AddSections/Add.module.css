@@ -1,0 +1,141 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+  background-color: var(--black-alpha);
+  backdrop-filter: blur(0.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addForm {
+  width: 65rem;
+  /* height: 55rem; */
+  background-color: var(--dark-gray);
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: var(--dark-blue);
+  border: 0.2rem solid var(--green-blue);
+  background-color: var(--dark-gray);
+  border-radius: 1rem;
+  height: 4rem;
+  width: 4rem;
+  transition: 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+.border {
+  width: 100%;
+  border: 0.7rem solid var(--dark-blue);
+  border-radius: 1rem;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 0.5rem; */
+  transition: 0.2s ease;
+}
+
+.border:has(.textarea) {
+  height: 28rem !important;
+}
+
+.legend {
+  margin-left: 5rem;
+  padding: 0 2rem;
+  color: var(--white);
+  font-size: 3rem;
+}
+
+.input,
+.textarea {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+}
+
+.textarea {
+  text-align: left;
+  resize: none;
+  width: 90% !important;
+  height: 22rem !important;
+  font-weight: 400;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: transparent;
+}
+
+.border:has(.input:focus) {
+  border-color: var(--green-blue);
+}
+
+.innerWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+
+.customImageInput {
+  cursor: pointer;
+  width: 32rem;
+  height: 6rem;
+  background: var(--gradient);
+  border-radius: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgName {
+  font-size: 2.4rem;
+  color: var(--white);
+}
+
+.hidden {
+  display: none;
+}
+
+.form input[type='submit'] {
+  width: 100%;
+  height: 6rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
