@@ -9,7 +9,7 @@ import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
 import DeleteButton from '../../../components/DeleteButton/DeleteButton';
 import EditButton from '../../../components/EditButton/EditButton';
-import { AddBlog } from '../AddSections/Add';
+import { AddBlog, AddOffer } from '../AddSections/Add';
 
 //. styles
 import styles from './Sections.module.css';
@@ -77,6 +77,7 @@ export function BlogSection() {
 
 export function OfferSection() {
   const [searchValue, setSearchValue] = useState<string | null>(null);
+  const [addingOffer, setAddingOffer] = useState(false);
 
   const [loading, data, error, request] = useAxios<OfferData[]>({
     method: 'GET',
@@ -93,9 +94,15 @@ export function OfferSection() {
   return (
     <>
       {loading && <LoadingScreen />}
+      {addingOffer && <AddOffer close={setAddingOffer} refresh={request} />}
       <section className={styles.topBar}>
         <section className={styles.addNew}>
-          <button className='material-symbols-outlined'>add</button>
+          <button
+            className='material-symbols-outlined'
+            onClick={() => setAddingOffer(!addingOffer)}
+          >
+            add
+          </button>
         </section>
         <form className={styles.searchBar} onSubmit={e => handleSubmit(e)}>
           <input
