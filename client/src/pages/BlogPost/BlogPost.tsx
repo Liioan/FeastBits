@@ -25,11 +25,6 @@ export default function BlogPost() {
     <>
       {loading && <LoadingScreen />}
       <main className={styles.blogPost}>
-        <Link to={'/blog'} className={styles.goBack}>
-          <span className='material-symbols-outlined'>chevron_left</span>
-          go back
-        </Link>
-
         <Header text={data ? data.title : 'title'} step={'h2'} />
 
         <section className={styles.wrapper}>
