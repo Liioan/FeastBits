@@ -11,16 +11,16 @@ class OfferController extends Controller
 
     public function showSingle()
     {
-        return offer::where('type', 'single')->get();
+        return offer::orderByDesc('created_at')->where('type', 'single')->get();
     }
     public function showSubs()
     {
-        return offer::where('type', 'subscribtion')->get();
+        return offer::orderByDesc('created_at')->where('type', 'subscribtion')->get();
     }
 
     public function index()
     {
-        return offer::all();
+        return offer::orderByDesc('created_at')->get();
     }
 
     //- create offer post
