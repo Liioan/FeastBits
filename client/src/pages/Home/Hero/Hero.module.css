@@ -32,13 +32,21 @@
 .hero a {
   position: absolute;
   bottom: 1rem;
-  font-size: 4rem;
+  font-size: 2rem;
   background: none;
   border: none;
   color: var(--light-gray);
   translate: 0 -0.5rem;
   transition: 0.2s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero a span {
+  font-size: 3.5rem;
 }
 
 .hero a:hover {

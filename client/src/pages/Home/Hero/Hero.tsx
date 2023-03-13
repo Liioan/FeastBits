@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { anticipate, motion } from 'framer-motion';
 
 //. styles
 import styles from './Hero.module.css';
@@ -40,9 +40,15 @@ export default function Hero() {
           "a bit for everyone"
         </motion.span>
       </div>
-      <a className=' material-symbols-outlined' href='#recomendations'>
-        expand_more
-      </a>
+      <motion.a
+        href='#recomendations'
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: 'anticipate', delay: 2 }}
+      >
+        learn more
+        <span className='material-symbols-outlined'>expand_more</span>{' '}
+      </motion.a>
     </div>
   );
 }
