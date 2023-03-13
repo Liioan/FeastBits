@@ -3,6 +3,7 @@ import baseUrl from '../../../global/BaseUrl';
 import { BlogData } from '../../../types/blog';
 import { OfferData } from '../../../types/offer';
 import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 
 //. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
@@ -61,7 +62,9 @@ export function BlogSection() {
               <div key={i} className={styles.adminBlogCard}>
                 <div className={styles.details}>
                   <img src={blog.img_url} alt='' />
-                  <span>{blog.title}</span>
+                  <Link to={`/blog/${blog.id}`}>
+                    <span>{blog.title}</span>
+                  </Link>
                 </div>
                 <div className={styles.buttons}>
                   <EditButton />
@@ -122,7 +125,9 @@ export function OfferSection() {
               <div key={i} className={styles.adminOfferCard}>
                 <div className={styles.details}>
                   <img src={offer.img_url} alt='' />
-                  <span>{offer.name}</span>
+                  <Link to={`/offer/${offer.id}`}>
+                    <span>{offer.name}</span>
+                  </Link>
                 </div>
                 <div className={styles.container}>
                   <div className={styles.price}>
