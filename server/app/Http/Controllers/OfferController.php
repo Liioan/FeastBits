@@ -54,4 +54,18 @@ class OfferController extends Controller
     {
         return offer::where('name', 'like', '%' . $name . '%')->get();
     }
+
+    public function update(Request $request, $id){
+        $offer = offer::find($id);
+
+        $offer->name = $request->input('name');
+        $offer->description = $request->input('description');
+        $offer->price = $request->input('price');
+        $offer->discount_price = $request->input('discount_price');
+        $offer->type = $request->input('type');
+        $offer->is_special = $request->input('is_special');
+        $offer->img_url = $request->input('img_url');
+        $offer->update();
+        return $offer;
+    }
 }

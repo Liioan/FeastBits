@@ -13,11 +13,20 @@ import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import styles from './Add.module.css';
 
 interface props {
+  setId: React.Dispatch<React.SetStateAction<number | null>>;
+  isEditing: boolean;
+  id: number | null;
   close: React.Dispatch<React.SetStateAction<boolean>>;
   refresh: () => void;
 }
 
-export function AddBlog({ close, refresh }: props) {
+export function AddBlog({
+  setId,
+  close,
+  refresh,
+  isEditing = false,
+  id = null,
+}: props) {
   const context = useAuth();
   if (!context) return null;
   const { token } = context;
@@ -32,11 +41,11 @@ export function AddBlog({ close, refresh }: props) {
 
   const [loading, data, axiosError, request] = useAxios<BlogData>(
     {
-      method: 'POST',
+      method: `${isEditing ? 'PUT' : 'POST'}`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blog/${isEditing ? id : ''}`,
       data: {
         title: title,
         description: description,
@@ -59,6 +68,11 @@ export function AddBlog({ close, refresh }: props) {
     setImg(file);
   };
 
+  const handleClose = () => {
+    close(false);
+    setId(null);
+  };
+
   useEffect(() => {
     if (imgUrl) {
       request();
@@ -68,6 +82,7 @@ export function AddBlog({ close, refresh }: props) {
   useEffect(() => {
     if (data && !loading) {
       close(false);
+      setId(null);
       refresh();
     }
   }, [data, loading]);
@@ -80,7 +95,7 @@ export function AddBlog({ close, refresh }: props) {
       <div className={styles.addBlogForm}>
         <button
           className={`material-symbols-outlined ${styles.closeBtn}`}
-          onClick={() => close(false)}
+          onClick={handleClose}
         >
           close
         </button>
@@ -118,14 +133,14 @@ export function AddBlog({ close, refresh }: props) {
             className={styles.hidden}
             onChange={e => handleFileChange(e)}
           />
-          <input type='submit' value='add' />
+          <input type='submit' value={isEditing ? 'edit' : 'add'} />
         </form>
       </div>
     </div>
   );
 }
 
-export function AddOffer({ close, refresh }: props) {
+export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
   const context = useAuth();
   if (!context) return null;
   const { token } = context;
@@ -144,11 +159,11 @@ export function AddOffer({ close, refresh }: props) {
 
   const [loading, data, axiosError, request] = useAxios<BlogData>(
     {
-      method: 'POST',
+      method: `${isEditing ? 'PUT' : 'POST'}`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      url: `${baseUrl}/offer`,
+      url: `${baseUrl}/offer/${isEditing ? id : ''}`,
       data: {
         name: name,
         description: description,
@@ -175,6 +190,11 @@ export function AddOffer({ close, refresh }: props) {
     setImg(file);
   };
 
+  const handleClose = () => {
+    close(false);
+    setId(null);
+  };
+
   useEffect(() => {
     if (imgUrl) {
       request();
@@ -184,6 +204,7 @@ export function AddOffer({ close, refresh }: props) {
   useEffect(() => {
     if (data && !loading) {
       close(false);
+      setId(null);
       refresh();
     }
   }, [data, loading]);

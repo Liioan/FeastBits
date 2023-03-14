@@ -2,7 +2,7 @@ import { useAxios } from '../../../hooks/useAxios';
 import baseUrl from '../../../global/BaseUrl';
 import { BlogData } from '../../../types/blog';
 import { OfferData } from '../../../types/offer';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 //. components
@@ -16,8 +16,11 @@ import { AddBlog, AddOffer } from '../AddSections/Add';
 import styles from './Sections.module.css';
 
 export function BlogSection() {
-  const [searchValue, setSearchValue] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [id, setId] = useState<number | null>(null);
   const [addingBlog, setAddingBlog] = useState(false);
+
+  const [searchValue, setSearchValue] = useState<string | null>(null);
 
   const [loading, data, error, request] = useAxios<BlogData[]>({
     method: 'GET',
@@ -34,7 +37,15 @@ export function BlogSection() {
   return (
     <>
       {loading && <LoadingScreen />}
-      {addingBlog && <AddBlog close={setAddingBlog} refresh={request} />}
+      {(addingBlog || isEditing) && (
+        <AddBlog
+          setId={setId}
+          close={isEditing ? setIsEditing : setAddingBlog}
+          refresh={request}
+          isEditing={isEditing}
+          id={id}
+        />
+      )}
       <section className={styles.topBar}>
         <section className={styles.addNew}>
           <button
@@ -67,7 +78,11 @@ export function BlogSection() {
                   </Link>
                 </div>
                 <div className={styles.buttons}>
-                  <EditButton />
+                  <EditButton
+                    setIsEditing={setIsEditing}
+                    setId={setId}
+                    id={blog.id}
+                  />
                   <DeleteButton path={`blog/${blog.id}`} />
                 </div>
               </div>
@@ -79,8 +94,11 @@ export function BlogSection() {
 }
 
 export function OfferSection() {
-  const [searchValue, setSearchValue] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [id, setId] = useState<number | null>(null);
   const [addingOffer, setAddingOffer] = useState(false);
+
+  const [searchValue, setSearchValue] = useState<string | null>(null);
 
   const [loading, data, error, request] = useAxios<OfferData[]>({
     method: 'GET',
@@ -97,7 +115,15 @@ export function OfferSection() {
   return (
     <>
       {loading && <LoadingScreen />}
-      {addingOffer && <AddOffer close={setAddingOffer} refresh={request} />}
+      {(addingOffer || isEditing) && (
+        <AddOffer
+          setId={setId}
+          close={isEditing ? setIsEditing : setAddingOffer}
+          refresh={request}
+          isEditing={isEditing}
+          id={id}
+        />
+      )}
       <section className={styles.topBar}>
         <section className={styles.addNew}>
           <button
@@ -141,7 +167,11 @@ export function OfferSection() {
                     )}
                   </div>
                   <div className={styles.buttons}>
-                    <EditButton />
+                    <EditButton
+                      setIsEditing={setIsEditing}
+                      setId={setId}
+                      id={offer.id}
+                    />
                     <DeleteButton path={`offer/${offer.id}`} />
                   </div>
                 </div>

@@ -41,4 +41,13 @@ class BlogsController extends Controller
     {
         return blog::where('title', 'like', '%' . $title . '%')->get();
     }
+
+    public function update(Request $request, $id){
+        $blog = blog::find($id);
+        $blog->title = $request->input('title');
+        $blog->description = $request->input('description');
+        $blog->img_url = $request->input('img_url');
+        $blog->update();
+        return $blog;
+    }
 }
