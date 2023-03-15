@@ -73,6 +73,12 @@ export function AddBlog({
     setId(null);
   };
 
+  const showImgName = () => {
+    if (!img) return 'no image';
+    if (img.name.length > 15) return img.name.substring(0, 15) + '...';
+    return img.name;
+  };
+
   useEffect(() => {
     if (imgUrl) {
       request();
@@ -125,7 +131,7 @@ export function AddBlog({
             <label htmlFor='file' className={styles.customImageInput}>
               choose image
             </label>
-            <p className={styles.imgName}>{img ? img.name : 'no image'}</p>
+            <p className={styles.imgName}>{showImgName()}</p>
           </div>
           <input
             type='file'
