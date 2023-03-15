@@ -33,7 +33,6 @@ function App() {
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<AdminPanel />} />
-        <Route path='/change-password' element={<>change password</>} />
       </Routes>
       <Footer />
     </div>

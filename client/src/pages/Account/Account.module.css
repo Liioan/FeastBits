@@ -33,3 +33,30 @@
   display: flex;
   gap: 2.5rem;
 }
+
+.profileImg {
+  width: 30rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .profileOverview {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .innerWrapper {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .userInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .accountOperations {
+    flex-direction: column;
+  }
+}

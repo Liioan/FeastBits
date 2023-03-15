@@ -15,7 +15,7 @@ export default function RedButton({
   return (
     <button
       className={styles.btn}
-      style={{ width: `${width}rem` }}
+      style={{ maxWidth: `${width}rem` }}
       onClick={onClickEvent}
     >
       {text}

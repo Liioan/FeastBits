@@ -54,7 +54,7 @@ export default function Account() {
     <main>
       <Header text={'Account'} step={'h2'} />
       <section className={styles.profileOverview}>
-        <img src={accountCircle} alt='' />
+        <img src={accountCircle} alt='' className={styles.profileImg} />
         <section className={styles.innerWrapper}>
           <div className={styles.userInfo}>
             <div className={styles.info}>
@@ -71,12 +71,11 @@ export default function Account() {
             </div>
           </div>
           <div className={styles.accountOperations}>
-            <Link to={user.is_admin ? '/admin' : '/change-password'}>
-              <GradientButton
-                text={user.is_admin ? 'admin panel' : 'change password'}
-                width={40}
-              />
-            </Link>
+            {user.is_admin && (
+              <Link to={'/admin'}>
+                <GradientButton text={'admin panel'} width={40} />
+              </Link>
+            )}
             <RedButton
               text={'log out'}
               width={40}
