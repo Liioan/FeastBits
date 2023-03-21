@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class offer extends Model
 {
     use HasFactory;
@@ -19,5 +20,9 @@ class offer extends Model
         'created_at',
         'img_url'
     ];
+
+    public function orders(){
+        return $this->hasMany(order::class);
+    }
 
 }

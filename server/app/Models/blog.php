@@ -16,4 +16,7 @@ class blog extends Model
         'img_url'
     ];
 
+    public function offer(): HasOne{
+        return $this->hasOne(order::class);
+    }
 }

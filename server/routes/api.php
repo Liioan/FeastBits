@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\http\Controllers\BlogsController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OfferController;
+use App\Http\COntrollers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,9 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::post('/order', [OrderController::class, 'store']);
+    Route::get('/order', [OrderController::class, 'index']);
 
     Route::group(
         ['middleware' => ['isAdmin']],
