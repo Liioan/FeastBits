@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 //. styles
 import styles from './PriceTag.module.css';
 
@@ -9,11 +11,35 @@ interface props {
 export default function PriceTag({ price, discount_price }: props) {
   return (
     <>
-      {!discount_price && <div className={styles.price}>{price}$</div>}
+      {!discount_price && (
+        <div className={styles.price}>
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+          >
+            {price}$
+          </motion.span>
+        </div>
+      )}
       {discount_price && (
         <div className={styles.discountPrice}>
-          <span className={styles.oldPrice}>{price}$</span>
-          <span className={styles.newPrice}>{discount_price}$</span>
+          <motion.span
+            className={styles.oldPrice}
+            initial={{ x: 50 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+          >
+            {price}$
+          </motion.span>
+          <motion.span
+            className={styles.newPrice}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'backInOut', delay: 0.7 }}
+          >
+            {discount_price}$
+          </motion.span>
         </div>
       )}
     </>

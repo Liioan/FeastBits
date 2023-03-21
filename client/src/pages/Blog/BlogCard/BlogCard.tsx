@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import checkForAdmin from '../../../global/IsUserAdmin';
+import { motion } from 'framer-motion';
 
 //. components
 import BlogHeader from './BlogHeader';
@@ -11,6 +12,7 @@ import styles from './BlogCard.module.css';
 
 interface props {
   id: number;
+  iteration: number;
   title: string;
   description: string;
   created_at: string;
@@ -19,6 +21,7 @@ interface props {
 
 export default function BlogCard({
   id,
+  iteration,
   title,
   description,
   created_at,
@@ -29,7 +32,12 @@ export default function BlogCard({
   const isUserAdmin = checkForAdmin();
 
   return (
-    <section className={styles.blogCard}>
+    <motion.section
+      className={styles.blogCard}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, ease: 'backInOut', delay: 0.1 * iteration }}
+    >
       <img src={img_url} alt='' />
       <div className={styles.desc}>
         <BlogHeader text={title} />
@@ -46,6 +54,6 @@ export default function BlogCard({
         </div>
         <span className={styles.timestamp}>{date}</span>
       </div>
-    </section>
+    </motion.section>
   );
 }

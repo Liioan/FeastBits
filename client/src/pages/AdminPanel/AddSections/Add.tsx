@@ -4,6 +4,7 @@ import { useAxios } from '../../../hooks/useAxios';
 import { BlogData } from '../../../types/blog';
 import { useAuth } from '../../../context/AuthContext';
 import baseUrl from '../../../global/BaseUrl';
+import { motion } from 'framer-motion';
 
 //. components
 import { FormEvent } from 'react';
@@ -97,8 +98,18 @@ export function AddBlog({
     return <ErrorScreen errorMessage={error || axiosError} />;
   }
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.addBlogForm}>
+    <motion.div
+      className={styles.wrapper}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
+        className={styles.addBlogForm}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
+      >
         <button
           className={`material-symbols-outlined ${styles.closeBtn}`}
           onClick={handleClose}
@@ -141,8 +152,8 @@ export function AddBlog({
           />
           <input type='submit' value={isEditing ? 'edit' : 'add'} />
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -219,8 +230,18 @@ export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
     return <ErrorScreen errorMessage={error || axiosError} />;
   }
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.addOfferForm}>
+    <motion.div
+      className={styles.wrapper}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
+        className={styles.addOfferForm}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
+      >
         <button
           className={`material-symbols-outlined ${styles.closeBtn}`}
           onClick={() => close(false)}
@@ -313,7 +334,7 @@ export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
           />
           <input type='submit' value='add' />
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

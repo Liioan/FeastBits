@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useAxios } from '../../hooks/useAxios';
 import { OfferData } from '../../types/offer';
 import baseUrl from '../../global/BaseUrl';
+import { backInOut, motion } from 'framer-motion';
 
 //. components
 import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
@@ -38,8 +39,19 @@ export default function OfferPage() {
       {loading && <LoadingScreen />}
       <main className={styles.offer}>
         <section className={styles.wrapper}>
-          <div className={styles.imgWrapper}>
-            <div className={styles.badges}>
+          <motion.div
+            className={styles.imgWrapper}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'backInOut' }}
+          >
+            <motion.div
+              className={styles.badges}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+            >
               {isSpeacial && (
                 <span className={`material-symbols-outlined ${styles.badge}`}>
                   magic_button
@@ -50,9 +62,14 @@ export default function OfferPage() {
                   fiber_new
                 </span>
               )}{' '}
-            </div>
+            </motion.div>
             <img src={data?.img_url} alt='offer image' />
-            <div className={styles.badgesMeaning}>
+            <motion.div
+              className={styles.badgesMeaning}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+            >
               {isSpeacial && (
                 <>
                   <span
@@ -73,9 +90,15 @@ export default function OfferPage() {
                   <span>- new offer</span>
                 </>
               )}
-            </div>
-          </div>
-          <div className={styles.desc}>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className={styles.desc}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
+          >
             <Header text={data ? data.name : 'name'} step={'h2'} />
             <p>{data?.description}</p>
             <div className={styles.innerWrapper}>
@@ -85,7 +108,7 @@ export default function OfferPage() {
               />
               <GradientButton text='Order now' width={25} />
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
     </>

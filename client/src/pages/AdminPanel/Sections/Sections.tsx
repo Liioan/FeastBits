@@ -4,6 +4,7 @@ import { BlogData } from '../../../types/blog';
 import { OfferData } from '../../../types/offer';
 import { useState, FormEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 //. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
@@ -70,7 +71,17 @@ export function BlogSection() {
         <div className={styles.innerWrapper}>
           {data &&
             data.map((blog, i) => (
-              <div key={i} className={styles.adminBlogCard}>
+              <motion.div
+                key={i}
+                className={styles.adminBlogCard}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'backInOut',
+                  delay: 0.1 * i,
+                }}
+              >
                 <div className={styles.details}>
                   <img src={blog.img_url} alt='' />
                   <Link to={`/blog/${blog.id}`}>
@@ -85,7 +96,7 @@ export function BlogSection() {
                   />
                   <DeleteButton path={`blog/${blog.id}`} />
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </section>
@@ -148,7 +159,17 @@ export function OfferSection() {
         <div className={styles.innerWrapper}>
           {data &&
             data.map((offer, i) => (
-              <div key={i} className={styles.adminOfferCard}>
+              <motion.div
+                key={i}
+                className={styles.adminOfferCard}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'backInOut',
+                  delay: 0.1 * i,
+                }}
+              >
                 <div className={styles.details}>
                   <img src={offer.img_url} alt='' />
                   <Link to={`/offer/${offer.id}`}>
@@ -175,7 +196,7 @@ export function OfferSection() {
                     <DeleteButton path={`offer/${offer.id}`} />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </section>

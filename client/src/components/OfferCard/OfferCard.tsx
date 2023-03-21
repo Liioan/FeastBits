@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { OfferData } from '../../types/offer';
+import { motion } from 'framer-motion';
 
 //. components
 import GradientButton from '../Buttons/GradientButton';
@@ -10,6 +11,7 @@ import styles from './OfferCard.module.css';
 
 interface props {
   id: number;
+  iteration: number;
   name: string;
   description: string;
   price: number;
@@ -23,6 +25,7 @@ const tenDaysInMiliseconds = 864000000;
 
 export default function OfferCard({
   id,
+  iteration,
   name,
   description,
   price,
@@ -34,7 +37,12 @@ export default function OfferCard({
   let createdAtDate = new Date(created_at).getTime();
 
   return (
-    <div className={styles.offerCard}>
+    <motion.div
+      className={styles.offerCard}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'backInOut', delay: 0.1 * iteration }}
+    >
       {!(createdAtDate + tenDaysInMiliseconds < new Date().getTime()) && (
         <span className={`material-symbols-outlined ${styles.newOffer}`}>
           fiber_new
@@ -59,6 +67,6 @@ export default function OfferCard({
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
