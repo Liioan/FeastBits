@@ -11,7 +11,10 @@ class order extends Model
 
     protected $fillable = [
         'user_id',
-        'offer_id'
+        'offer_id',
+        'city',
+        'street',
+        'house_number',
     ];
 
     public function offer(){

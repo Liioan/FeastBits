@@ -45,9 +45,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::post('/order', [OrderController::class, 'store']);
-    Route::get('/order', [OrderController::class, 'index']);
-
+    Route::post('/orders', [OrderController::class, 'store']);
+    Route::get('/orders/subs', [OrderController::class, 'showSubs']);
+    Route::get('/orders/single', [OrderController::class, 'showSingle']);
+    
     Route::group(
         ['middleware' => ['isAdmin']],
         function () {
@@ -56,10 +57,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('/offer', [OfferController::class, 'store']);
             Route::delete('/offer/{id}', [OfferController::class, 'destroy']);
             Route::put('/offer/{id}', [OfferController::class, 'update']);
-
+            
             Route::post('/blog', [BlogsController::class, 'store']);
             Route::delete('/blog/{id}', [BlogsController::class, 'destroy']);
             Route::put('/blog/{id}', [BlogsController::class, 'update']);
+            Route::get('/order', [OrderController::class, 'index']);
         }
     );
 });
