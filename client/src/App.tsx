@@ -33,6 +33,7 @@ function App() {
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<AdminPanel />} />
+        <Route path='/order/:id' element={<>Order XD</>} />
       </Routes>
       <Footer />
     </div>

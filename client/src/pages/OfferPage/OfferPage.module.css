@@ -15,9 +15,7 @@
   width: 40vw;
   height: 48rem;
   object-fit: cover !important;
-  border-bottom: 1.5rem solid;
-  border-image: var(--gradient);
-  border-image-slice: 60 30;
+  border-radius: 10px;
 }
 
 .wrapper p {
