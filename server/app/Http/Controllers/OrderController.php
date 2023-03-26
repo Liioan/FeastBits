@@ -19,6 +19,7 @@ class OrderController extends Controller
 
     public function showSingle(Request $request)
     {
+        $userId = $request->user()['id'];
         $result = DB::table('orders as o')
         ->select('o.*')
         ->join('users as u', 'u.id', '=', 'o.user_id')
@@ -27,13 +28,14 @@ class OrderController extends Controller
                 ->from('offers')
                 ->where('type', 'single');
         })
-        ->where('u.id', '=', 1)
+        ->where('u.id', '=', $userId)
         ->get();
         return $result;    
     }
 
     public function showSubs(Request $request)
     {
+        $userId = $request->user()['id'];
         $result = DB::table('orders as o')
         ->select('o.*')
         ->join('users as u', 'u.id', '=', 'o.user_id')
@@ -42,7 +44,7 @@ class OrderController extends Controller
                 ->from('offers')
                 ->where('type', 'subscribtion');
         })
-        ->where('u.id', '=', 1)
+        ->where('u.id', '=', $userId)
         ->get();
         return $result;
     }
