@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useAxios } from '../../hooks/useAxios';
 import { OfferData } from '../../types/offer';
 import baseUrl from '../../global/BaseUrl';
-import { backInOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 //. components
 import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
@@ -106,7 +107,9 @@ export default function OfferPage() {
                 price={data ? data.price : 0}
                 discount_price={data ? data.discount_price : 0}
               />
-              <GradientButton text='Order now' width={25} />
+              <Link to={'/order/:id'}>
+                <GradientButton text='Order now' width={25} />
+              </Link>
             </div>
           </motion.div>
         </section>

@@ -16,6 +16,7 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Account from './pages/Account/Account';
 import AdminPanel from './pages/AdminPanel/AdminPanel';
+import OrderPage from './pages/OrderPage/OrderPage';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<AdminPanel />} />
-        <Route path='/order/:id' element={<>Order XD</>} />
+        <Route path='/order/:id' element={<OrderPage />} />
       </Routes>
       <Footer />
     </div>
