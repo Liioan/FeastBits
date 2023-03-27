@@ -107,7 +107,7 @@ export default function OfferPage() {
                 price={data ? data.price : 0}
                 discount_price={data ? data.discount_price : 0}
               />
-              <Link to={'/order/:id'}>
+              <Link to={`/order/${params.id}`}>
                 <GradientButton text='Order now' width={25} />
               </Link>
             </div>

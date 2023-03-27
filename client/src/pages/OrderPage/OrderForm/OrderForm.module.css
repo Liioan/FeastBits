@@ -64,7 +64,7 @@
   max-width: 30rem;
 }
 
-.houseNumber {
+.house_number {
   max-width: 32rem;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .error {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--red);
   height: 2rem;
 }
@@ -86,7 +86,7 @@
   }
 
   .city,
-  .houseNumber {
+  .house_number {
     max-width: 100%;
   }
 }

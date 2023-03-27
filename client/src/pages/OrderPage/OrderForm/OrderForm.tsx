@@ -26,7 +26,7 @@ export default function OrderForm({ setOrderDetails }: props) {
   const orderDetailsSchema = z.object({
     street: z.string({ required_error: 'Street name is required' }).min(1),
     city: z.string({ required_error: 'City name is required' }).min(1),
-    houseNumber: z
+    house_number: z
       .number({
         invalid_type_error: 'House number must be a number',
         required_error: 'House number is required',
@@ -57,10 +57,11 @@ export default function OrderForm({ setOrderDetails }: props) {
   });
 
   useEffect(() => {
+    let isValid = false;
     const orderDetails = {
       street: street,
       city: city,
-      houseNumber: houseNumber,
+      house_number: houseNumber,
       cardNumber: cardNumber,
       expDate: expDate,
       cvc: cvc,
@@ -70,18 +71,22 @@ export default function OrderForm({ setOrderDetails }: props) {
     try {
       orderDetailsSchema.parse(orderDetails);
       setValidationError(null);
-      setOrderDetails({
-        street: street,
-        city: city,
-        houseNumber: houseNumber,
-        cardNumber: cardNumber,
-        expDate: expDate,
-        cvc: cvc,
-        tip: tip,
-      });
+      isValid = true;
     } catch (err: any) {
       setValidationError(err.errors[0].message);
+      isValid = false;
     }
+
+    setOrderDetails({
+      street: street,
+      city: city,
+      house_number: houseNumber,
+      cardNumber: cardNumber,
+      expDate: expDate,
+      cvc: cvc,
+      tip: tip,
+      isValid: isValid,
+    });
   }, [street, city, houseNumber, cardNumber, expDate, cvc, tip]);
 
   return (
@@ -110,13 +115,13 @@ export default function OrderForm({ setOrderDetails }: props) {
             onChange={e => setCity(e.target.value)}
           />
         </fieldset>
-        <fieldset className={`${styles.border} ${styles.houseNumber}`}>
+        <fieldset className={`${styles.border} ${styles.house_number}`}>
           <legend className={styles.legend}>
-            <label htmlFor='houseNumber'>house number</label>
+            <label htmlFor='house_number'>house number</label>
           </legend>
           <input
             type='text'
-            id='houseNumber'
+            id='house_number'
             className={styles.input}
             onChange={e => setHouseNumber(Number(e.target.value))}
           />

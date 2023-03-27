@@ -12,9 +12,10 @@ export interface OrderData {
 export interface OrderDetails {
   street: string | undefined;
   city: string | undefined;
-  houseNumber: number | undefined;
+  house_number: number | undefined;
   cardNumber: number | undefined;
   expDate: string | undefined;
   cvc: number | undefined;
   tip: number | undefined;
+  isValid: boolean | undefined;
 }
