@@ -2,6 +2,7 @@ import { useAxios } from '../../../hooks/useAxios';
 import { OfferData } from '../../../types/offer';
 import { OrderDetails } from '../../../types/order';
 import baseUrl from '../../../global/BaseUrl';
+import { motion, AnimatePresence } from 'framer-motion';
 
 //. components
 import Header from '../../../components/Header';
@@ -49,10 +50,22 @@ export default function OrderSummary({
     );
   };
 
+  const handleClick = () => {
+    if (orderDetails?.isValid) {
+      sendRequest();
+    } else return;
+  };
+
   return (
     <>
       {loading && <LoadingScreen />}
-      <section className={styles.card}>
+      <motion.section
+        className={styles.card}
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
+      >
         <Header text={'order summary'} step={'h3'} />
         <div className={styles.imgWrapper}>
           <img src={data?.img_url} alt='' />
@@ -87,12 +100,19 @@ export default function OrderSummary({
             <p className={styles.sideNote}>
               * free shipping for diets and orders above 20$
             </p>
-            {orderDetails?.tip !== 0 && orderDetails?.tip !== undefined && (
-              <p>
-                <span className={styles.label}>tip:</span>
-                <span className={styles.value}>{orderDetails?.tip}$</span>
-              </p>
-            )}
+            <AnimatePresence>
+              {orderDetails?.tip !== 0 && orderDetails?.tip !== undefined && (
+                <motion.p
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 100 }}
+                  transition={{ duration: 0.5, ease: 'backInOut' }}
+                >
+                  <span className={styles.label}>tip:</span>
+                  <span className={styles.value}>{orderDetails?.tip}$</span>
+                </motion.p>
+              )}
+            </AnimatePresence>
             <p className={styles.summary}>
               <span className={styles.label}>total:</span>
               <span className={styles.value}>{calcFinalPrice()}$</span>
@@ -103,11 +123,11 @@ export default function OrderSummary({
           className={`${styles.order} ${
             orderDetails?.isValid ? '' : styles.invalid
           }`}
-          onClick={sendRequest}
+          onClick={handleClick}
         >
           {data?.type === 'single' ? 'order' : 'subscribe'}
         </button>
-      </section>
+      </motion.section>
     </>
   );
 }

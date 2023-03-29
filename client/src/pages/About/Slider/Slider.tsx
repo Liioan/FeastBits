@@ -1,5 +1,4 @@
 import Marquee from 'react-fast-marquee';
-import { motion } from 'framer-motion';
 
 //. styles
 import styles from './Slider.module.css';

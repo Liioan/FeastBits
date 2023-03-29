@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { OrderDetails } from '../../../types/order';
 import { z } from 'zod';
+import { motion } from 'framer-motion';
 
 //. components
 import Header from '../../../components/Header';
@@ -90,7 +91,13 @@ export default function OrderForm({ setOrderDetails }: props) {
   }, [street, city, houseNumber, cardNumber, expDate, cvc, tip]);
 
   return (
-    <form className={styles.form}>
+    <motion.form
+      className={styles.form}
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: 'backInOut' }}
+    >
       <div className={styles.formSection}>
         <Header text='adress' step='h3' />
         <fieldset className={styles.border}>
@@ -180,6 +187,6 @@ export default function OrderForm({ setOrderDetails }: props) {
         <p className={styles.sideNote}>* not required</p>
         <p className={styles.error}>{validationError}</p>
       </div>
-    </form>
+    </motion.form>
   );
 }

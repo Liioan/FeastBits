@@ -26,3 +26,51 @@
     align-items: center;
   }
 }
+
+.complete {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.orderCompleted {
+  width: 55rem;
+  height: 60rem;
+  background-color: var(--black);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+
+.orderCompleted h4 {
+  font-size: 6.4rem;
+  color: var(--white);
+}
+
+.orderCompleted p {
+  font-size: 3.4rem;
+  color: var(--medium-gray);
+  font-weight: 700;
+}
+
+.svgWrapper {
+  width: 15rem;
+  height: 15rem;
+  border: 1rem solid var(--light-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

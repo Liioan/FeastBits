@@ -35,7 +35,7 @@
   padding: 2rem 3.5rem;
   background-color: var(--black);
   width: 100%;
-  min-height: 30rem;
+  height: calc(auto + 5rem);
   border-radius: 1rem;
 }
 

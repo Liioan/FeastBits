@@ -108,7 +108,10 @@ export default function OfferPage() {
                 discount_price={data ? data.discount_price : 0}
               />
               <Link to={`/order/${params.id}`}>
-                <GradientButton text='Order now' width={25} />
+                <GradientButton
+                  text={data?.type === 'single' ? 'Order now' : 'Subscribe'}
+                  width={25}
+                />
               </Link>
             </div>
           </motion.div>
