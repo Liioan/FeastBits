@@ -42,7 +42,7 @@ class OrderController extends Controller
         ->whereIn('o.offer_id', function($query) {
             $query->select('id')
                 ->from('offers')
-                ->where('type', 'subscribtion');
+                ->where('type', 'subscription');
         })
         ->where('u.id', '=', $userId)
         ->get();

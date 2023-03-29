@@ -305,10 +305,10 @@ export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
                 single
               </span>
               <span
-                className={type === 'subscribtion' ? styles.selected : ''}
-                onClick={() => setType('subscribtion')}
+                className={type === 'subscription' ? styles.selected : ''}
+                onClick={() => setType('subscription')}
               >
-                subscribtion
+                subscription
               </span>
             </div>
             <span

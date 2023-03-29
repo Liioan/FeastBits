@@ -61,7 +61,7 @@ export default function OfferCard({
 
           <Link to={`/offer/${id}`}>
             <GradientButton
-              text={type === 'subscribtion' ? 'Subscribe' : 'Order now'}
+              text={type === 'subscription' ? 'Subscribe' : 'Order now'}
               width={discount_price ? 25 : 27}
             />
           </Link>

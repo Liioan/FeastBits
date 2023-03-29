@@ -15,7 +15,7 @@ class OfferController extends Controller
     }
     public function showSubs()
     {
-        return offer::orderByDesc('created_at')->where('type', 'subscribtion')->get();
+        return offer::orderByDesc('created_at')->where('type', 'subscription')->get();
     }
 
     public function index()

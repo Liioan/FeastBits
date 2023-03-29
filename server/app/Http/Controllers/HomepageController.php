@@ -20,6 +20,6 @@ class HomepageController extends Controller
     }
     public function showSubs()
     {
-        return offer::where('type', 'subscribtion')->take(3)->get();
+        return offer::where('type', 'subscription')->take(3)->get();
     }
 }

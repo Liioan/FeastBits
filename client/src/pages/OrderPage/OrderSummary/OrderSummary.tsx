@@ -31,7 +31,7 @@ export default function OrderSummary({
     if (data === undefined) return 2.2;
     if (data.discount_price && data.discount_price > 20) return 0;
     if (data.price >= 20) return 0;
-    if (data.type === 'subscribtion') return 0;
+    if (data.type === 'subscription') return 0;
     return 2.2;
   };
 

@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->text('description');
             $table->decimal('price', 6, 2);
             $table->decimal('discount_price', 6, 2)->nullable();
-            $table->enum('type', ['single', 'subscribtion'])->default('subscribtion');
+            $table->enum('type', ['single', 'subscription'])->default('subscription');
             $table->boolean('is_special')->default(0);
             $table->timestamps();
         });
