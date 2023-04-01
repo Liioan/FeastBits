@@ -28,7 +28,6 @@ Route::get('/blog', [BlogsController::class, 'index']);
 Route::get('/blog/{id}', [BlogsController::class, 'show']);
 Route::get('/blog/search/{name}', [BlogsController::class, 'search']);
 
-//^ this is for testing only, will be protected later
 
 Route::get('/offer', [OfferController::class, 'index']);
 Route::get('/offer/subs', [OfferController::class, 'showSubs']);
@@ -37,7 +36,6 @@ Route::get('/offer/search/{name}', [OfferController::class, 'search']);
 Route::get('/offer/{id}', [OfferController::class, 'show']);
 
 
-//^ this is for testing only, will be protected later
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -48,6 +46,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/orders', [OrderController::class, 'store']);
     Route::get('/orders/subs', [OrderController::class, 'showSubs']);
     Route::get('/orders/single', [OrderController::class, 'showSingle']);
+    Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
     
     Route::group(
         ['middleware' => ['isAdmin']],
@@ -62,6 +61,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::delete('/blog/{id}', [BlogsController::class, 'destroy']);
             Route::put('/blog/{id}', [BlogsController::class, 'update']);
             Route::get('/order', [OrderController::class, 'index']);
+            
+            Route::put('/orders/{id}', [OrderController::class, 'complete']);
         }
     );
 });

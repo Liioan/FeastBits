@@ -20,31 +20,23 @@ class OrderController extends Controller
     public function showSingle(Request $request)
     {
         $userId = $request->user()['id'];
-        $result = DB::table('orders as o')
-        ->select('o.*')
-        ->join('users as u', 'u.id', '=', 'o.user_id')
-        ->whereIn('o.offer_id', function($query) {
-            $query->select('id')
-                ->from('offers')
-                ->where('type', 'single');
-        })
-        ->where('u.id', '=', $userId)
+        $result = DB::table('offers as of')
+        ->select('of.name', 'of.type', 'of.id', 'of.img_url', 'orr.created_at', 'orr.updated_at', 'orr.is_completed')
+        ->join('orders as orr', 'of.id', '=', 'orr.offer_id')
+        ->where('orr.user_id', '=', 2)
+        ->where('of.type', '=', 'single')
         ->get();
         return $result;    
     }
 
     public function showSubs(Request $request)
     {
-        $userId = $request->user()['id'];
-        $result = DB::table('orders as o')
-        ->select('o.*')
-        ->join('users as u', 'u.id', '=', 'o.user_id')
-        ->whereIn('o.offer_id', function($query) {
-            $query->select('id')
-                ->from('offers')
-                ->where('type', 'subscription');
-        })
-        ->where('u.id', '=', $userId)
+       $userId = $request->user()['id'];
+        $result = DB::table('offers as of')
+        ->select('of.*')
+        ->join('orders as orr', 'orr.offer_id', '=', 'of.id')
+        ->where('orr.user_id', '=', $userId)
+        ->where('of.type', '=', 'subscription')
         ->get();
         return $result;
     }
@@ -70,6 +62,15 @@ class OrderController extends Controller
     }
 
     public function destroy($id){
-        return Order::destroy($id);
+        order::destroy($id);
+        return 'deleted succesfully';
     }
+
+    public function complete($id){
+        $order = order::find($id);
+        $order->is_completed = true;
+        $order->update();
+        return 'completed order';
+    }
+
 }

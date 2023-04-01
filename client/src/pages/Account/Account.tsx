@@ -11,6 +11,7 @@ import accountCircle from '../../assets/accountCircle.png';
 import Header from '../../components/Header';
 import GradientButton from '../../components/Buttons/GradientButton';
 import RedButton from '../../components/Buttons/RedButton';
+import OrdersList from './OrdersList/OrdersList';
 
 //. styles
 import styles from './Account.module.css';
@@ -51,7 +52,7 @@ export default function Account() {
   }, [data, loading]);
 
   return (
-    <main>
+    <main className={styles.account}>
       <Header text={'Account'} step={'h2'} />
       <section className={styles.profileOverview}>
         <img src={accountCircle} alt='' className={styles.profileImg} />
@@ -84,7 +85,10 @@ export default function Account() {
           </div>
         </section>
       </section>
-      {/* */}
+      <Header text={'Subscriptions'} step='h3' />
+      <OrdersList path={'orders/subs'} />
+      <Header text={'Single delivery'} step='h3' />
+      <OrdersList path={'orders/single'} />
     </main>
   );
 }
