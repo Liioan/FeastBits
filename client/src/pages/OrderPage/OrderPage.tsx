@@ -18,8 +18,6 @@ import OrderSummary from './OrderSummary/OrderSummary';
 import styles from './OrderPage.module.css';
 
 export default function OrderPage() {
-  const navigate = useNavigate();
-
   const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
   const params = useParams();
   const context = useAuth();

@@ -3,6 +3,7 @@ import { OfferData } from '../../../types/offer';
 import { OrderDetails } from '../../../types/order';
 import baseUrl from '../../../global/BaseUrl';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 //. components
 import Header from '../../../components/Header';
@@ -41,12 +42,16 @@ export default function OrderSummary({
       return (
         data.discount_price +
         calcShippingPrice() +
-        (orderDetails?.tip !== undefined ? orderDetails.tip : 0)
+        (orderDetails?.tip !== undefined && orderDetails.tip > 0
+          ? orderDetails.tip
+          : 0)
       );
     return (
       data.price +
       calcShippingPrice() +
-      (orderDetails?.tip !== undefined ? orderDetails.tip : 0)
+      (orderDetails?.tip !== undefined && orderDetails.tip > 0
+        ? orderDetails.tip
+        : 0)
     );
   };
 
@@ -69,7 +74,9 @@ export default function OrderSummary({
         <Header text={'order summary'} step={'h3'} />
         <div className={styles.imgWrapper}>
           <img src={data?.img_url} alt='' />
-          <span>{data?.name}</span>
+          <Link to={`/offer/${offerId}`} className={styles.offerName}>
+            <span>{data?.name}</span>
+          </Link>
         </div>
         <div className={styles.detailsWrapper}>
           <div className={styles.info}>
@@ -101,7 +108,7 @@ export default function OrderSummary({
               * free shipping for diets and orders above 20$
             </p>
             <AnimatePresence>
-              {orderDetails?.tip !== 0 && orderDetails?.tip !== undefined && (
+              {orderDetails?.tip !== undefined && orderDetails?.tip > 0 && (
                 <motion.p
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}

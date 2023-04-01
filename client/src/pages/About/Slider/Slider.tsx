@@ -20,7 +20,8 @@ export default function Slider() {
 
   return (
     <Marquee
-      gradient={false}
+      gradient={true}
+      gradientColor={[51, 51, 51]}
       speed={50}
       className={styles.marquee}
       pauseOnHover={true}

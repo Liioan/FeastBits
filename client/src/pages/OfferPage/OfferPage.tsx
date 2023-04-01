@@ -28,12 +28,20 @@ export default function OfferPage() {
   if (error.length) return <ErrorScreen errorMessage={error} />;
 
   let createdAtDate = new Date(data ? data.created_at : 0).getTime();
-  let isSpeacial;
+  let isSpeacial = false;
   if (data && data.is_special) {
     isSpeacial = true;
   }
 
   let now = new Date().getTime();
+  const showBadges = () => {
+    let badges = false;
+
+    if (isSpeacial) badges = true;
+    if (!(createdAtDate + tenDaysInMiliseconds < now)) badges = true;
+
+    return badges;
+  };
 
   return (
     <>
@@ -47,29 +55,31 @@ export default function OfferPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'backInOut' }}
           >
-            <motion.div
-              className={styles.badges}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
-            >
-              {isSpeacial && (
-                <span className={`material-symbols-outlined ${styles.badge}`}>
-                  magic_button
-                </span>
-              )}
-              {!(createdAtDate + tenDaysInMiliseconds < now) && (
-                <span className={`material-symbols-outlined ${styles.badge}`}>
-                  fiber_new
-                </span>
-              )}{' '}
-            </motion.div>
+            {showBadges() && (
+              <motion.div
+                className={styles.badges}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+              >
+                {isSpeacial && (
+                  <span className={`material-symbols-outlined ${styles.badge}`}>
+                    magic_button
+                  </span>
+                )}
+                {!(createdAtDate + tenDaysInMiliseconds < now) && (
+                  <span className={`material-symbols-outlined ${styles.badge}`}>
+                    fiber_new
+                  </span>
+                )}{' '}
+              </motion.div>
+            )}
             <img src={data?.img_url} alt='offer image' />
             <motion.div
               className={styles.badgesMeaning}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'backInOut', delay: 0.5 }}
+              transition={{ duration: 0.5, ease: 'backInOut', delay: 1 }}
             >
               {isSpeacial && (
                 <>

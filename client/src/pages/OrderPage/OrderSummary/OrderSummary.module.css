@@ -23,7 +23,7 @@
   border-right: 0.5rem solid var(--green-blue);
 }
 
-.imgWrapper span {
+.imgWrapper .offerName {
   text-align: center;
   font-size: 3.2rem;
   font-weight: 700;

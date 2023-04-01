@@ -68,6 +68,14 @@
   max-width: 32rem;
 }
 
+.cvc {
+  max-width: 24rem;
+}
+
+.expDate {
+  max-width: 38rem;
+}
+
 .sideNote {
   width: 100%;
   font-size: 1.5rem;
@@ -86,7 +94,9 @@
   }
 
   .city,
-  .house_number {
+  .house_number,
+  .cvc,
+  .expDate {
     max-width: 100%;
   }
 }
