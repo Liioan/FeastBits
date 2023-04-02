@@ -32,12 +32,10 @@ export default function OrdersList({ path, headerText }: props) {
 
   if (error.length) return <ErrorScreen errorMessage={error} />;
 
-  console.log(data);
-
   return (
     <>
       {loading && <LoadingScreen />}
-      {data?.length && (
+      {data?.length ? (
         <>
           <Header text={headerText} step='h3' />
           <div className={styles.orderWrapper}>
@@ -58,7 +56,7 @@ export default function OrdersList({ path, headerText }: props) {
               ))}
           </div>
         </>
-      )}
+      ) : null}
     </>
   );
 }

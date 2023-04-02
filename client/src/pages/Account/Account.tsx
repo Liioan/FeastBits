@@ -75,11 +75,11 @@ export default function Account() {
             </div>
           </div>
           <div className={styles.accountOperations}>
-            {user.is_admin && (
+            {user.is_admin ? (
               <Link to={'/admin'}>
                 <GradientButton text={'admin panel'} width={40} />
               </Link>
-            )}
+            ) : null}
             <RedButton
               text={'log out'}
               width={40}
