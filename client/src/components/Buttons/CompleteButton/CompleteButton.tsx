@@ -1,23 +1,24 @@
-import { useAxios } from '../../hooks/useAxios';
-import baseUrl from '../../global/BaseUrl';
+import baseUrl from '../../../global/BaseUrl';
 import { useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAxios } from '../../../hooks/useAxios';
+import { useAuth } from '../../../context/AuthContext';
 
 //. styles
-import styles from './DeleteButton.module.css';
+import styles from './CompleteButton.module.css';
 
 interface props {
   path: string;
+  refresh: () => void;
 }
 
-export default function DeleteButton({ path }: props) {
+export default function CompleteButton({ path, refresh }: props) {
   const context = useAuth();
   if (!context) return null;
   const { token } = context;
 
   const [loading, data, error, request] = useAxios<number>(
     {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -26,22 +27,18 @@ export default function DeleteButton({ path }: props) {
     false
   );
 
-  const handleClick = () => {
-    request();
-  };
-
   useEffect(() => {
     if (data && !loading) {
-      location.reload();
+      refresh();
     }
   }, [data, loading]);
 
   return (
     <button
-      className={`material-symbols-outlined ${styles.deleteButton}`}
-      onClick={handleClick}
+      className={`material-symbols-outlined ${styles.btn}`}
+      onClick={request}
     >
-      delete
+      done
     </button>
   );
 }

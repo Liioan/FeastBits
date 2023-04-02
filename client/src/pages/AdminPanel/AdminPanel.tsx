@@ -4,7 +4,11 @@ import { useAuth } from '../../context/AuthContext';
 
 //. components
 import Header from '../../components/Header';
-import { BlogSection, OfferSection } from './Sections/Sections';
+import {
+  BlogSection,
+  OfferSection,
+  UserOrdersSection,
+} from './Sections/Sections';
 
 //. styles
 import styles from './AdminPanel.module.css';
@@ -29,6 +33,8 @@ export default function AdminPanel() {
       <BlogSection />
       <Header text='Offers' step='h3' />
       <OfferSection />
+      <Header text='User orders' step='h3' />
+      <UserOrdersSection />
     </main>
   );
 }

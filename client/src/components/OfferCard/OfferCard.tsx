@@ -3,7 +3,7 @@ import { OfferData } from '../../types/offer';
 import { motion } from 'framer-motion';
 
 //. components
-import GradientButton from '../Buttons/GradientButton';
+import GradientButton from '../Buttons/GradientButton/GradientButton';
 import PriceTag from '../PriceTag/PriceTag';
 
 //. styles

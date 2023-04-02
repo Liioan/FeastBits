@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 //. components
 import BlogHeader from './BlogHeader';
-import GradientButton from '../../../components/Buttons/GradientButton';
-import DeleteButton from '../../../components/DeleteButton/DeleteButton';
+import GradientButton from '../../../components/Buttons/GradientButton/GradientButton';
+import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton';
 
 //. styles
 import styles from './BlogCard.module.css';

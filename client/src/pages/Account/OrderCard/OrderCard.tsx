@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { OrderData } from '../../../types/order';
 
 //. components
-import GradientButton from '../../../components/Buttons/GradientButton';
-import RedButton from '../../../components/Buttons/RedButton';
+import GradientButton from '../../../components/Buttons/GradientButton/GradientButton';
+import RedButton from '../../../components/Buttons/RedButton/RedButton';
 
 //. styles
 import styles from './OrderCard.module.css';

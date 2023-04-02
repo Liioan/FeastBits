@@ -2,16 +2,19 @@ import { useAxios } from '../../../hooks/useAxios';
 import baseUrl from '../../../global/BaseUrl';
 import { BlogData } from '../../../types/blog';
 import { OfferData } from '../../../types/offer';
-import { useState, FormEvent, useEffect } from 'react';
+import { OrderData } from '../../../types/order';
+import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useAuth } from '../../../context/AuthContext';
 
 //. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
-import DeleteButton from '../../../components/DeleteButton/DeleteButton';
-import EditButton from '../../../components/EditButton/EditButton';
+import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton';
+import EditButton from '../../../components/Buttons/EditButton/EditButton';
 import { AddBlog, AddOffer } from '../AddSections/Add';
+import CompleteButton from '../../../components/Buttons/CompleteButton/CompleteButton';
 
 //. styles
 import styles from './Sections.module.css';
@@ -94,7 +97,7 @@ export function BlogSection() {
                     setId={setId}
                     id={blog.id}
                   />
-                  <DeleteButton path={`blog/${blog.id}`} />
+                  <DeleteButton path={`blog/${blog.id}`} refresh={request} />
                 </div>
               </motion.div>
             ))}
@@ -193,9 +196,95 @@ export function OfferSection() {
                       setId={setId}
                       id={offer.id}
                     />
-                    <DeleteButton path={`offer/${offer.id}`} />
+                    <DeleteButton
+                      path={`offer/${offer.id}`}
+                      refresh={request}
+                    />
                   </div>
                 </div>
+              </motion.div>
+            ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function UserOrdersSection() {
+  const context = useAuth();
+  if (!context) return null;
+  const { token } = context;
+
+  const [searchValue, setSearchValue] = useState<string | null>(null);
+
+  const [loading, data, error, request] = useAxios<OrderData[]>({
+    method: 'GET',
+    url: `${baseUrl}/orders/${searchValue ? `/orders/${searchValue}` : ''}`,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    request();
+  };
+
+  if (error) return <ErrorScreen errorMessage={error} />;
+
+  return (
+    <>
+      {loading && <LoadingScreen />}
+
+      <section className={styles.topBar}>
+        <form className={styles.searchBar} onSubmit={e => handleSubmit(e)}>
+          <input
+            type='text'
+            onChange={e => setSearchValue(e.target.value)}
+            placeholder={'search'}
+          />
+          <input
+            type='submit'
+            value='search'
+            className='material-symbols-outlined'
+          />
+        </form>
+        <div className={styles.innerWrapper}>
+          {data &&
+            data.map((order, i) => (
+              <motion.div
+                key={i}
+                className={styles.adminOrderCard}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'backInOut',
+                  delay: 0.1 * i,
+                }}
+              >
+                <p className={styles.adress}>
+                  <span>{order.city},</span>
+                  <span>{order.street},</span>
+                  <span>{order.house_number}</span>
+                </p>
+                {order.type === 'single' ? (
+                  <span
+                    className={`${styles.status} ${
+                      order.is_completed ? styles.completed : ''
+                    }`}
+                  >
+                    {order.is_completed ? 'completed' : 'not completed'}
+                  </span>
+                ) : null}
+                {order.is_completed || order.type === 'subscription' ? (
+                  <DeleteButton path={`orders/${order.id}`} refresh={request} />
+                ) : (
+                  <CompleteButton
+                    path={`orders/${order.id}`}
+                    refresh={request}
+                  />
+                )}
               </motion.div>
             ))}
         </div>

@@ -14,7 +14,12 @@ class OrderController extends Controller
 {
 
     public function index(){
-        return order::all();        
+        $result = DB::table('orders as orr')
+        ->select('orr.*', 'of.type')
+        ->join('offers as of', 'orr.offer_id', '=', 'of.id')
+        ->orderBy('of.type')
+        ->get();
+        return $result;        
     }
 
     public function showSingle(Request $request)

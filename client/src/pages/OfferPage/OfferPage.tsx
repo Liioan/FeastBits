@@ -10,7 +10,7 @@ import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 import Header from '../../components/Header';
 import PriceTag from '../../components/PriceTag/PriceTag';
-import GradientButton from '../../components/Buttons/GradientButton';
+import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 
 //. styles
 import styles from './OfferPage.module.css';

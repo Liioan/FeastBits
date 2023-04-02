@@ -96,7 +96,8 @@
 }
 
 .adminBlogCard,
-.adminOfferCard {
+.adminOfferCard,
+.adminOrderCard {
   background-color: var(--black-alpha);
   padding-right: 2rem;
   border-radius: 1rem;
@@ -128,7 +129,8 @@
 }
 
 .adminBlogCard span,
-.adminOfferCard span {
+.adminOfferCard span,
+.adminOrderCard span {
   font-size: 3.2rem;
   color: var(--white);
   font-weight: 700;
@@ -157,6 +159,26 @@
   gap: 4rem;
   align-items: center;
   justify-content: space-between;
+}
+
+.adminOrderCard {
+  padding: 2rem;
+}
+
+.adress {
+  width: 40%;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.status {
+  color: var(--dark-blue) !important;
+  text-align: left;
+  width: 20%;
+}
+
+.completed {
+  color: var(--green-blue) !important;
 }
 
 @media screen and (max-width: 900px) {

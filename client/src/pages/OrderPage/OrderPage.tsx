@@ -5,7 +5,7 @@ import baseUrl from '../../global/BaseUrl';
 import { useAuth } from '../../context/AuthContext';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import GradientButton from '../../components/Buttons/GradientButton';
+import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 

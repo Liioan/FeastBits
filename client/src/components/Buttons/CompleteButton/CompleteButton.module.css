@@ -1,0 +1,10 @@
+.btn {
+  height: 6rem;
+  width: 6rem;
+  background-color: var(--light-blue);
+  border-radius: 1rem;
+  border: none;
+  font-size: 4rem !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
