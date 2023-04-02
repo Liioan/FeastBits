@@ -1,6 +1,14 @@
 export interface OrderData {
-  user_id: number;
+  id: number;
   offer_id: number;
+  name: string;
+  description: string;
+  price: number;
+  discount_price: number | null;
+  type: string;
+  is_special: boolean;
+  img_url: string;
+  user_id: number;
   created_at: string;
   updated_at: string;
   is_completed: boolean;

@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useAxios } from '../../../hooks/useAxios';
 import baseUrl from '../../../global/BaseUrl';
 import { useAuth } from '../../../context/AuthContext';
+import { useEffect } from 'react';
+import { OrderData } from '../../../types/order';
 
 //. components
 import GradientButton from '../../../components/Buttons/GradientButton';
@@ -20,6 +22,7 @@ interface props {
   created_at: string;
   updated_at: string;
   is_completed: boolean;
+  refresh: () => void;
 }
 
 export default function OrderCard({
@@ -31,14 +34,15 @@ export default function OrderCard({
   created_at,
   updated_at,
   is_completed,
+  refresh,
 }: props) {
   const context = useAuth();
   if (!context) return null;
   const { token } = context;
 
-  const [loading, data, error, request] = useAxios<string>(
+  const [loading, data, error, request] = useAxios<OrderData>(
     {
-      method: `${type === 'subscription' ? 'DELETE' : 'PUT'}`,
+      method: 'DELETE',
       url: `${baseUrl}/orders/${id}`,
       headers: {
         Authorization: `Bearer ${token}`,
@@ -49,6 +53,12 @@ export default function OrderCard({
 
   const createdAtDate = new Date(created_at).toLocaleString();
   const updatedAtDate = new Date(updated_at).toLocaleString();
+
+  useEffect(() => {
+    if (!loading && data) {
+      refresh();
+    }
+  }, [loading, data, error, id]);
 
   return (
     <motion.div

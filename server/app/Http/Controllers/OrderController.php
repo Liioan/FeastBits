@@ -21,9 +21,9 @@ class OrderController extends Controller
     {
         $userId = $request->user()['id'];
         $result = DB::table('offers as of')
-        ->select('of.name', 'of.type', 'of.id', 'of.img_url', 'orr.created_at', 'orr.updated_at', 'orr.is_completed')
+        ->select('of.name', 'of.type', 'of.id as offer_id', 'of.img_url', 'orr.id', 'orr.created_at', 'orr.updated_at', 'orr.is_completed')
         ->join('orders as orr', 'of.id', '=', 'orr.offer_id')
-        ->where('orr.user_id', '=', 2)
+        ->where('orr.user_id', '=', $userId)
         ->where('of.type', '=', 'single')
         ->get();
         return $result;    
@@ -33,8 +33,8 @@ class OrderController extends Controller
     {
        $userId = $request->user()['id'];
         $result = DB::table('offers as of')
-        ->select('of.*')
-        ->join('orders as orr', 'orr.offer_id', '=', 'of.id')
+        ->select('of.name', 'of.type', 'of.id as offer_id', 'of.img_url', 'orr.id', 'orr.created_at', 'orr.updated_at', 'orr.is_completed')
+        ->join('orders as orr', 'of.id', '=', 'orr.offer_id')
         ->where('orr.user_id', '=', $userId)
         ->where('of.type', '=', 'subscription')
         ->get();
@@ -62,8 +62,8 @@ class OrderController extends Controller
     }
 
     public function destroy($id){
-        order::destroy($id);
-        return 'deleted succesfully';
+        
+        return order::destroy($id);
     }
 
     public function complete($id){

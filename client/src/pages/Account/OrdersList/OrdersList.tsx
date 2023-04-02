@@ -1,26 +1,28 @@
 import { useAuth } from '../../../context/AuthContext';
 import { useAxios } from '../../../hooks/useAxios';
-import { OfferData } from '../../../types/offer';
 import baseUrl from '../../../global/BaseUrl';
+import { OrderData } from '../../../types/order';
 
 //. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
 import OrderCard from '../OrderCard/OrderCard';
+import Header from '../../../components/Header';
 
 //. styles
 import styles from './OrdersList.module.css';
 
 interface props {
   path: string;
+  headerText: string;
 }
 
-export default function OrdersList({ path }: props) {
+export default function OrdersList({ path, headerText }: props) {
   const context = useAuth();
   if (!context) return null;
   const { token } = context;
 
-  const [loading, data, error] = useAxios<OfferData[]>({
+  const [loading, data, error, request] = useAxios<OrderData[]>({
     method: 'GET',
     url: `${baseUrl}/${path}`,
     headers: {
@@ -30,25 +32,33 @@ export default function OrdersList({ path }: props) {
 
   if (error.length) return <ErrorScreen errorMessage={error} />;
 
+  console.log(data);
+
   return (
     <>
       {loading && <LoadingScreen />}
-      <div className={styles.orderWrapper}>
-        {data &&
-          data.map((offer, i) => (
-            <OrderCard
-              key={offer.id + i}
-              id={offer.id}
-              iteration={i}
-              name={offer.name}
-              img_url={offer.img_url}
-              type={offer.type}
-              created_at={offer.created_at}
-              updated_at={offer.updated_at}
-              is_completed={offer.is_completed}
-            />
-          ))}
-      </div>
+      {data?.length && (
+        <>
+          <Header text={headerText} step='h3' />
+          <div className={styles.orderWrapper}>
+            {data &&
+              data.map((offer, i) => (
+                <OrderCard
+                  key={offer.id + i}
+                  id={offer.id}
+                  iteration={i}
+                  name={offer.name}
+                  img_url={offer.img_url}
+                  type={offer.type}
+                  created_at={offer.created_at}
+                  updated_at={offer.updated_at}
+                  is_completed={offer.is_completed}
+                  refresh={request}
+                />
+              ))}
+          </div>
+        </>
+      )}
     </>
   );
 }

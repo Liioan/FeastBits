@@ -12,6 +12,7 @@ import Header from '../../components/Header';
 import GradientButton from '../../components/Buttons/GradientButton';
 import RedButton from '../../components/Buttons/RedButton';
 import OrdersList from './OrdersList/OrdersList';
+import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 
 //. styles
 import styles from './Account.module.css';
@@ -51,6 +52,8 @@ export default function Account() {
     }
   }, [data, loading]);
 
+  if (error) return <ErrorScreen errorMessage={error} />;
+
   return (
     <main className={styles.account}>
       <Header text={'Account'} step={'h2'} />
@@ -85,10 +88,8 @@ export default function Account() {
           </div>
         </section>
       </section>
-      <Header text={'Subscriptions'} step='h3' />
-      <OrdersList path={'orders/subs'} />
-      <Header text={'Single delivery'} step='h3' />
-      <OrdersList path={'orders/single'} />
+      <OrdersList path={'orders/subs'} headerText={'subscriptions'} />
+      <OrdersList path={'orders/single'} headerText={'Single delivery'} />
     </main>
   );
 }

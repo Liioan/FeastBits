@@ -9,5 +9,4 @@ export interface OfferData {
   created_at: string;
   updated_at: string;
   img_url: string;
-  is_completed: boolean;
 }
