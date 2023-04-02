@@ -71,6 +71,10 @@ class OrderController extends Controller
         return order::destroy($id);
     }
 
+    public function search($city){
+        return order::where('city', 'like', '%' . $city . '%')->get();
+    }
+
     public function complete($id){
         $order = order::find($id);
         $order->is_completed = true;

@@ -219,7 +219,7 @@ export function UserOrdersSection() {
 
   const [loading, data, error, request] = useAxios<OrderData[]>({
     method: 'GET',
-    url: `${baseUrl}/orders/${searchValue ? `/orders/${searchValue}` : ''}`,
+    url: `${baseUrl}/orders${searchValue ? `/search/${searchValue}` : ''}`,
     headers: {
       Authorization: `Bearer ${token}`,
     },
