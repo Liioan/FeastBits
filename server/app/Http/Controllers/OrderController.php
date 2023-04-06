@@ -15,7 +15,7 @@ class OrderController extends Controller
 
     public function index(){
         $result = DB::table('orders as orr')
-        ->select('orr.*', 'of.type')
+        ->select('orr.*', 'of.type', 'of.name')
         ->join('offers as of', 'orr.offer_id', '=', 'of.id')
         ->orderBy('of.type')
         ->get();

@@ -234,6 +234,7 @@ export function UserOrdersSection() {
             data.map((order, i) => (
               <div key={i} className={styles.adminOrderCard}>
                 <p className={styles.adress}>
+                  <span>{order.name},</span>
                   <span>{order.city},</span>
                   <span>{order.street},</span>
                   <span>{order.house_number}</span>
