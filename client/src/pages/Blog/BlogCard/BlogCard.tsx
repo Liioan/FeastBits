@@ -17,6 +17,7 @@ interface props {
   description: string;
   created_at: string;
   img_url: string;
+  refresh: () => void;
 }
 
 export default function BlogCard({
@@ -26,6 +27,7 @@ export default function BlogCard({
   description,
   created_at,
   img_url,
+  refresh,
 }: props) {
   let date = new Date(created_at).toLocaleDateString();
 
@@ -47,7 +49,9 @@ export default function BlogCard({
             : description}
         </p>
         <div className={styles.buttonsWrapper}>
-          {isUserAdmin && <DeleteButton path={`blog/${id}`} />}
+          {isUserAdmin && (
+            <DeleteButton path={`blog/${id}`} refresh={refresh} />
+          )}
           <Link to={`/blog/${id}`} className={styles.link}>
             <GradientButton text={'read more'} width={20} />
           </Link>

@@ -166,7 +166,8 @@
 }
 
 .adress {
-  width: 40%;
+  width: 60%;
+  overflow-x: hidden;
   display: flex;
   gap: 1.5rem;
 }

@@ -98,18 +98,8 @@ export function AddBlog({
     return <ErrorScreen errorMessage={error || axiosError} />;
   }
   return (
-    <motion.div
-      className={styles.wrapper}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2 }}
-    >
-      <motion.div
-        className={styles.addBlogForm}
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
-      >
+    <div className={styles.wrapper}>
+      <div className={styles.addBlogForm}>
         <button
           className={`material-symbols-outlined ${styles.closeBtn}`}
           onClick={handleClose}
@@ -152,8 +142,8 @@ export function AddBlog({
           />
           <input type='submit' value={isEditing ? 'edit' : 'add'} />
         </form>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -230,18 +220,8 @@ export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
     return <ErrorScreen errorMessage={error || axiosError} />;
   }
   return (
-    <motion.div
-      className={styles.wrapper}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2 }}
-    >
-      <motion.div
-        className={styles.addOfferForm}
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'backInOut', delay: 0.2 }}
-      >
+    <div className={styles.wrapper}>
+      <div className={styles.addOfferForm}>
         <button
           className={`material-symbols-outlined ${styles.closeBtn}`}
           onClick={() => close(false)}
@@ -334,7 +314,7 @@ export function AddOffer({ close, refresh, isEditing, id, setId }: props) {
           />
           <input type='submit' value='add' />
         </form>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

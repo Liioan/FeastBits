@@ -74,17 +74,7 @@ export function BlogSection() {
         <div className={styles.innerWrapper}>
           {data &&
             data.map((blog, i) => (
-              <motion.div
-                key={i}
-                className={styles.adminBlogCard}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: 'backInOut',
-                  delay: 0.1 * i,
-                }}
-              >
+              <div key={i} className={styles.adminBlogCard}>
                 <div className={styles.details}>
                   <img src={blog.img_url} alt='' />
                   <Link to={`/blog/${blog.id}`}>
@@ -99,7 +89,7 @@ export function BlogSection() {
                   />
                   <DeleteButton path={`blog/${blog.id}`} refresh={request} />
                 </div>
-              </motion.div>
+              </div>
             ))}
         </div>
       </section>
@@ -162,17 +152,7 @@ export function OfferSection() {
         <div className={styles.innerWrapper}>
           {data &&
             data.map((offer, i) => (
-              <motion.div
-                key={i}
-                className={styles.adminOfferCard}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: 'backInOut',
-                  delay: 0.1 * i,
-                }}
-              >
+              <div key={i} className={styles.adminOfferCard}>
                 <div className={styles.details}>
                   <img src={offer.img_url} alt='' />
                   <Link to={`/offer/${offer.id}`}>
@@ -202,7 +182,7 @@ export function OfferSection() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
         </div>
       </section>
@@ -252,17 +232,7 @@ export function UserOrdersSection() {
         <div className={styles.innerWrapper}>
           {data &&
             data.map((order, i) => (
-              <motion.div
-                key={i}
-                className={styles.adminOrderCard}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: 'backInOut',
-                  delay: 0.1 * i,
-                }}
-              >
+              <div key={i} className={styles.adminOrderCard}>
                 <p className={styles.adress}>
                   <span>{order.city},</span>
                   <span>{order.street},</span>
@@ -285,7 +255,7 @@ export function UserOrdersSection() {
                     refresh={request}
                   />
                 )}
-              </motion.div>
+              </div>
             ))}
         </div>
       </section>

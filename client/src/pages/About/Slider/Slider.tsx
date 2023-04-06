@@ -1,4 +1,5 @@
 import Marquee from 'react-fast-marquee';
+import { useIsMobile } from '../../../context/IsMobileContext';
 
 //. styles
 import styles from './Slider.module.css';
@@ -10,6 +11,8 @@ import PizzaLogo from '../../../assets/SliderImg/pizza.png';
 import SchoolLogo from '../../../assets/SliderImg/szkola.png';
 
 export default function Slider() {
+  const { isMobile } = useIsMobile();
+
   const handleClick = () => {
     window.open(
       'https://czarnojan.netlify.app',
@@ -20,7 +23,7 @@ export default function Slider() {
 
   return (
     <Marquee
-      gradient={true}
+      gradient={!isMobile}
       gradientColor={[51, 51, 51]}
       speed={50}
       className={styles.marquee}

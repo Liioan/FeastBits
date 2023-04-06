@@ -16,7 +16,7 @@ interface props {
 }
 
 export default function BlogList({ isOnHomePage, path }: props) {
-  const [loading, data, error] = useAxios<BlogData[]>({
+  const [loading, data, error, request] = useAxios<BlogData[]>({
     method: 'GET',
     url: `${baseUrl}/${path}`,
   });
@@ -37,6 +37,7 @@ export default function BlogList({ isOnHomePage, path }: props) {
               description={blog.description}
               created_at={blog.created_at}
               img_url={blog.img_url}
+              refresh={request}
             />
           ))}
       </div>
