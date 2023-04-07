@@ -1,6 +1,6 @@
 //. components
 import Header from '../../components/Header';
-import OfferList from '../../components/OfferList/OfferList';
+import OfferList from '../../components/Lists/OfferList/OfferList';
 
 //. styles
 import styles from './Meals.module.css';

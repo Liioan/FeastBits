@@ -5,8 +5,8 @@ import styles from './Home.module.css';
 
 //. components
 import Hero from './Hero/Hero';
-import BlogList from '../Blog/BlogList/BlogList';
-import OfferList from '../../components/OfferList/OfferList';
+import BlogList from '../../components/Lists/BlogList/BlogList';
+import OfferList from '../../components/Lists/OfferList/OfferList';
 import Header from '../../components/Header';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 

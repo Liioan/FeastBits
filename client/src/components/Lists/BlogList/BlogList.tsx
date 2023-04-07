@@ -3,9 +3,9 @@ import { BlogData } from '../../../types/blog';
 import baseUrl from '../../../global/BaseUrl';
 
 //. components
-import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
-import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
-import BlogCard from '../BlogCard/BlogCard';
+import ErrorScreen from '../../ErrorScreen/ErrorScreen';
+import LoadingScreen from '../../LoadingScreen/LoadingScreen';
+import BlogCard from '../../Cards/BlogCard/BlogCard';
 
 //. styles
 import styles from './BlogList.module.css';

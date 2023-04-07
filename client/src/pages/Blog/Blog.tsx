@@ -1,6 +1,6 @@
 //. components
 import Header from '../../components/Header';
-import BlogList from './BlogList/BlogList';
+import BlogList from '../../components/Lists/BlogList/BlogList';
 
 //. styles
 import styles from './Blog.module.css';

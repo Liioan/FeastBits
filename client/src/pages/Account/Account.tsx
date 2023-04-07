@@ -11,7 +11,7 @@ import accountCircle from '../../assets/accountCircle.png';
 import Header from '../../components/Header';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 import RedButton from '../../components/Buttons/RedButton/RedButton';
-import OrdersList from './OrdersList/OrdersList';
+import OrdersList from '../../components/Lists/OrdersList/OrdersList';
 import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 
 //. styles

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { OfferData } from '../../types/offer';
+import { OfferData } from '../../../types/offer';
 import { motion } from 'framer-motion';
 
 //. components
-import GradientButton from '../Buttons/GradientButton/GradientButton';
-import PriceTag from '../PriceTag/PriceTag';
+import GradientButton from '../../Buttons/GradientButton/GradientButton';
+import PriceTag from '../../PriceTag/PriceTag';
 
 //. styles
 import styles from './OfferCard.module.css';

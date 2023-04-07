@@ -4,10 +4,10 @@ import baseUrl from '../../../global/BaseUrl';
 import { OrderData } from '../../../types/order';
 
 //. components
-import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
-import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
-import OrderCard from '../OrderCard/OrderCard';
-import Header from '../../../components/Header';
+import ErrorScreen from '../../ErrorScreen/ErrorScreen';
+import LoadingScreen from '../../LoadingScreen/LoadingScreen';
+import OrderCard from '../../Cards/OrderCard/OrderCard';
+import Header from '../../Header';
 
 //. styles
 import styles from './OrdersList.module.css';

@@ -1,11 +1,11 @@
-import { useAxios } from '../../hooks/useAxios';
-import { OfferData } from '../../types/offer';
-import baseUrl from '../../global/BaseUrl';
+import { useAxios } from '../../../hooks/useAxios';
+import { OfferData } from '../../../types/offer';
+import baseUrl from '../../../global/BaseUrl';
 
 //. components
-import ErrorScreen from '../ErrorScreen/ErrorScreen';
-import LoadingScreen from '../LoadingScreen/LoadingScreen';
-import OfferCard from '../OfferCard/OfferCard';
+import ErrorScreen from '../../ErrorScreen/ErrorScreen';
+import LoadingScreen from '../../LoadingScreen/LoadingScreen';
+import OfferCard from '../../Cards/OfferCard/OfferCard';
 
 //. styles
 import styles from './OfferList.module.css';
