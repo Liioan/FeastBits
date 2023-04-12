@@ -118,4 +118,6 @@ export default function OrderPage() {
         </div>
       </main>
     );
+
+  return <></>;
 }

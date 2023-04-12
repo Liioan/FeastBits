@@ -42,9 +42,7 @@ export default function OrderForm({ setOrderDetails }: props) {
         message: 'Card number must be 16 characters long',
       }),
     expDate: z.custom<string>(value => {
-      return /^((0?[1-9])|([12]\d)|(3[01]))\/(0[1-9]|[1-9][0-9])$/.test(
-        value as string
-      );
+      return /^(0?[1-9]|1[0-2])\/(0[1-9]|[1-9][0-9])$/.test(value as string);
     }, 'Exp. date must be in a mm/yy format, where mm is less than 31'),
     cvc: z
       .number({
