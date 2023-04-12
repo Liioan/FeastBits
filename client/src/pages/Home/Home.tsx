@@ -7,7 +7,7 @@ import styles from './Home.module.css';
 import Hero from './Hero/Hero';
 import BlogList from '../../components/Lists/BlogList/BlogList';
 import OfferList from '../../components/Lists/OfferList/OfferList';
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 
 export default function Home() {

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 //. components
-import Header from '../../../components/Header';
+import Header from '../../../components/Header/Header';
 import LoadingScreen from '../../../components/LoadingScreen/LoadingScreen';
 
 //. styles

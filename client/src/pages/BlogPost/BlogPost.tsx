@@ -5,7 +5,7 @@ import baseUrl from '../../global/BaseUrl';
 import { motion } from 'framer-motion';
 
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 

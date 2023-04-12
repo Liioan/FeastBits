@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import OrderForm from './OrderForm/OrderForm';
 import OrderSummary from './OrderSummary/OrderSummary';
 

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import {
   BlogSection,
   OfferSection,

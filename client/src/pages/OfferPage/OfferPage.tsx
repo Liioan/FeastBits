@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 //. components
 import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import PriceTag from '../../components/PriceTag/PriceTag';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 

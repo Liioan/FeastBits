@@ -7,7 +7,7 @@ import baseUrl from '../../global/BaseUrl';
 import { useAuth } from '../../context/AuthContext';
 
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 
 //. styles
 import styles from './Login.module.css';

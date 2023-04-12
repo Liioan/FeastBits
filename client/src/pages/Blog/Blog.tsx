@@ -1,5 +1,5 @@
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import BlogList from '../../components/Lists/BlogList/BlogList';
 
 //. styles

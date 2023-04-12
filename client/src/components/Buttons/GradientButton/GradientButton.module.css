@@ -1,5 +1,6 @@
 .btn {
-  height: 6rem;
+  min-height: 6rem;
+  height: auto;
   background: var(--gradient);
   font-size: 3rem;
   font-weight: 700;

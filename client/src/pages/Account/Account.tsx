@@ -8,7 +8,7 @@ import baseUrl from '../../global/BaseUrl';
 import accountCircle from '../../assets/accountCircle.png';
 
 //. components
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 import RedButton from '../../components/Buttons/RedButton/RedButton';
 import OrdersList from '../../components/Lists/OrdersList/OrdersList';

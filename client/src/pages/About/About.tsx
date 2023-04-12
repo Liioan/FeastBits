@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import styles from './About.module.css';
 
 //. component
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import Slider from './Slider/Slider';
 
 //. assets

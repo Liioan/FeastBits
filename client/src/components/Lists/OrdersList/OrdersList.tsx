@@ -7,7 +7,7 @@ import { OrderData } from '../../../types/order';
 import ErrorScreen from '../../ErrorScreen/ErrorScreen';
 import LoadingScreen from '../../LoadingScreen/LoadingScreen';
 import OrderCard from '../../Cards/OrderCard/OrderCard';
-import Header from '../../Header';
+import Header from '../../Header/Header';
 
 //. styles
 import styles from './OrdersList.module.css';

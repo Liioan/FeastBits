@@ -17,6 +17,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Account from './pages/Account/Account';
 import AdminPanel from './pages/AdminPanel/AdminPanel';
 import OrderPage from './pages/OrderPage/OrderPage';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path='/account' element={<Account />} />
         <Route path='/admin' element={<AdminPanel />} />
         <Route path='/order/:id' element={<OrderPage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
