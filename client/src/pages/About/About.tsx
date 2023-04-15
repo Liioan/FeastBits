@@ -9,6 +9,7 @@ import Slider from './Slider/Slider';
 
 //. assets
 import AboutImg from '../../assets/AboutImg.png';
+import { useEffect } from 'react';
 
 export default function About() {
   return (

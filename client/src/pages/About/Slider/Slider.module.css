@@ -12,3 +12,22 @@
 .marquee img:hover {
   filter: none;
 }
+
+.czarnojan {
+  top: 50%;
+  z-index: 100;
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+  animation: spin 1s infinite linear;
+  position: absolute;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
