@@ -22,12 +22,13 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: 'backInOut' }}
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-          optio repellat possimus unde libero veniam ad repellendus suscipit
-          molestiae officiis culpa itaque perspiciatis aliquam neque aspernatur
-          quam, labore nesciunt tempore ipsa vel provident atque tempora
-          quisquam. Dolorum aut reprehenderit facere aperiam exercitationem
-          laudantium molestiae quisquam voluptates possimus maiores. Velit, qui?
+          Welcome to FeastBits! Our catering company specializes in providing
+          mouth-watering dishes that are perfect for any event. Our menu
+          features a diverse range of flavors and cuisines that are sure to
+          impress your guests. From corporate events to private parties, we are
+          dedicated to providing exceptional service and delicious food that
+          caters to your needs. Contact us today to learn more about how we can
+          make your next event a success.
         </motion.div>
         <motion.img
           src={AboutImg}
