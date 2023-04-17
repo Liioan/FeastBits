@@ -75,6 +75,19 @@ Also add your admin email adress
 ADMIN_EMAIL=example@example.dev
 ```
 
+### database
+
+![database schema](./img/db%20schema.png)
+
+To work with the project you'll need to perform migrations on database, to do so, open your terminal and run these commands:
+
+```bash
+> cd Feastbits/server
+> php artisan migrate
+```
+
+You can also import showcase database, from included `showcase.sql` file.
+
 ## Development servers
 
 To work with the project, you need to start development servers for both client and api.
@@ -92,8 +105,6 @@ To start api development server open another terminal and run these commands:
 
 ```bash
 > cd Feastbits/server
-> php artisan migrate
-#  ^ this command only needs to be used once, after first instalation of this project
 > php artisan server
 ```
 
