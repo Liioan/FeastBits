@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Kwi 2023, 19:42
+-- Czas generowania: 17 Kwi 2023, 19:54
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -146,6 +146,15 @@ CREATE TABLE `orders` (
   `house_number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Zrzut danych tabeli `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `offer_id`, `created_at`, `updated_at`, `is_completed`, `city`, `street`, `house_number`) VALUES
+(1, 2, 5, '2023-04-17 15:52:21', '2023-04-17 15:54:19', 1, 'Cieszyn', 'Ignacego Kraszewskiego', 11),
+(2, 2, 1, '2023-04-17 15:52:58', '2023-04-17 15:52:58', 0, 'Cieszyn', 'Ignacego Kraszewskiego', 11),
+(3, 2, 8, '2023-04-17 15:53:43', '2023-04-17 15:53:43', 0, 'Cieszyn', 'Ignacego Kraszewskiego', 11);
+
 -- --------------------------------------------------------
 
 --
@@ -182,7 +191,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 1, 'myapptoken', 'fa9008de35866b6f9c900c99368efba89752a2591f29fdebcb9d645547e69731', '[\"*\"]', '2023-04-17 15:41:25', NULL, '2023-04-17 14:57:39', '2023-04-17 15:41:25');
+(3, 'App\\Models\\User', 1, 'myapptoken', '5323350dfe76fc0cff1ed5af5e37ef83eed82e7436bcc59002d0d8ca6bc6bb26', '[\"*\"]', '2023-04-17 15:54:19', NULL, '2023-04-17 15:54:12', '2023-04-17 15:54:19');
 
 -- --------------------------------------------------------
 
@@ -208,7 +217,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `is_admin`) VALUES
-(1, 'James', 'Hoffman', 'admin@feastbits.dev', NULL, '$2y$10$kATBd5G6Ut7o.3SPrKMsveUjsRORu0ANP2V0g0c4Czm.afIimdyn.', NULL, '2023-04-17 14:57:39', '2023-04-17 14:57:39', 1);
+(1, 'James', 'Hoffman', 'admin@feastbits.dev', NULL, '$2y$10$kATBd5G6Ut7o.3SPrKMsveUjsRORu0ANP2V0g0c4Czm.afIimdyn.', NULL, '2023-04-17 14:57:39', '2023-04-17 14:57:39', 1),
+(2, 'Billie', 'Dough', 'user@email.com', NULL, '$2y$10$MgdaPNgRJxib38TmH5/ULuYBNfvduK9Hs8sFf2ymwrMHP9gKapRvq', NULL, '2023-04-17 15:51:09', '2023-04-17 15:51:09', 0);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -298,19 +308,19 @@ ALTER TABLE `offers`
 -- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

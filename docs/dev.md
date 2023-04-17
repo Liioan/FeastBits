@@ -88,6 +88,8 @@ To work with the project you'll need to perform migrations on database, to do so
 
 You can also import showcase database, from included `showcase.sql` file.
 
+> \*note there are two account registered in this database, admin@feastbits.dev and user@email.com. Both account have the same password, wich is `password`
+
 ## Development servers
 
 To work with the project, you need to start development servers for both client and api.
