@@ -3,19 +3,87 @@
 ## table of contents
 
 - [registration](#registration)
-- [adding and editing blog posts]()
-- [adding and editing offers]()
-- [completing orders]()
+- [adding, deleting and editing blog posts](#adding-deleting-and-editing-blog-posts)
+- [adding, deleting and editing offers](#adding-deleting-and-editing-offers)
+- [completing orders](#completing-orders)
 
 ## Registration
 
 To register a new account, press user icon in the top right corner
-![clicking on icon](./img/user/1.png)
+![clicking on icon](./img/admin/1.png)
 
 After that, click sign up button
 
-![clicking sign up](./img/user/2.png)
+![clicking sign up](./img/admin/2.png)
 
 Fill in the form marked with blue box, and press sign up button
 
-![form](./img/user/3.png)
+![form](./img/admin/3.png)
+
+## Adding, deleting and editing blog posts
+
+To add blog post click admin panel button in top right corner
+
+![clicking admin panel button](./img/admin/4.png)
+
+Then press `+` icon above posts list
+
+![clicking + button](./img/admin/5.png)
+
+Fill in the form, then press add button
+
+![form](./img/admin/6.png)
+
+To delete a post, press delete button on the right of the post you want to delete
+
+![deleting post](./img/admin/7.png)
+
+To edit a blog post press edit button on the right of the post you want to edit
+
+![editing blog post](./img/admin/8.png)
+
+Then fill in the form and press edit button
+
+![form](./img/admin/6.png)
+
+## Adding, deleting and editing offers
+
+To add blog post click admin panel button in top right corner
+
+![clicking admin panel button](./img/admin/4.png)
+
+Then scroll to offer section and press `+` icon above posts list
+
+![clicking + button](./img/admin/9.png)
+
+Fill in the form, then press add button
+
+![form](./img/admin/10.png)
+
+To delete a post, press delete button on the right of the post you want to delete
+
+![deleting post](./img/admin/11.png)
+
+To edit a blog post press edit button on the right of the post you want to edit
+
+![editing blog post](./img/admin/12.png)
+
+Then fill in the form and press edit button
+
+![form](./img/admin/10.png)
+
+## Completing orders
+
+To complete order or remove it from database, first click on the admin panel button in top right corner
+
+![clicking admin panel button](./img/admin/4.png)
+
+Scroll down to user orders section
+
+If you want to complete an order press complete button on right side of the order
+
+![completing order](./img/admin/13.png)
+
+Or if you want to remove order from database, press the delete button
+
+![deleting order from database](./img/admin/14.png)
