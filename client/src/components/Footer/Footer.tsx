@@ -16,9 +16,6 @@ export default function Footer() {
           {'\u00a9'}FeastBits {date}
         </p>
         <section>
-          <Link to={'/sources'} className={styles.link}>
-            Sources
-          </Link>
           <a
             href='https://github.com/liioan/feastbits'
             target={'_blank'}
