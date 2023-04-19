@@ -166,10 +166,14 @@
 }
 
 .adress {
-  width: 60%;
+  width: 65%;
   overflow-x: hidden;
   display: flex;
   gap: 1.5rem;
+}
+
+.adress span {
+  font-size: 2rem;
 }
 
 .status {
