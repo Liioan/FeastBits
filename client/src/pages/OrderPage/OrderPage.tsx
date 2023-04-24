@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import OrderForm from './OrderForm/OrderForm';
 import OrderSummary from './OrderSummary/OrderSummary';
+import ErrorScreen from '../../components/ErrorScreen/ErrorScreen';
 
 //. styles
 import styles from './OrderPage.module.css';
@@ -55,6 +56,8 @@ export default function OrderPage() {
       },
     },
   };
+
+  if (error) return <ErrorScreen errorMessage={error} />;
 
   if (data)
     return (

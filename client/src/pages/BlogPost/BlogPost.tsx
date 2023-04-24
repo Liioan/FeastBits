@@ -20,7 +20,7 @@ export default function BlogPost() {
     url: `${baseUrl}/blog/${params.id}`,
   });
 
-  if (error.length) return <ErrorScreen errorMessage={error} />;
+  if (error) return <ErrorScreen errorMessage={error} />;
 
   return (
     <>

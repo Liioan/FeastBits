@@ -25,7 +25,7 @@ export default function OfferPage() {
     url: `${baseUrl}/offer/${params.id}`,
   });
 
-  if (error.length) return <ErrorScreen errorMessage={error} />;
+  if (error) return <ErrorScreen errorMessage={error} />;
 
   let createdAtDate = new Date(data ? data.created_at : 0).getTime();
   let isSpeacial = false;
