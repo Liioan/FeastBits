@@ -8,6 +8,9 @@
   - [Development server](#development-servers)
 - [Components](#components)
 - [Hooks](#hooks)
+- [Packages used](#packages-used)
+  - [client packages](#client-packages)
+  - [server packages](#server-packages)
 
 # Installation
 
@@ -402,3 +405,22 @@ const [loading, data, error, request] = useAxios<T>({axios config}, boolean)
 - Axios config object declares method, headers and data sent in request
 - boolean indicates if hook will run when component mounts
 - request function destructured from this hook is a function wich sends request again
+
+# Packages used
+
+## client packages
+
+- Typescript
+- React
+- Vite
+- Zod
+- React Spinners
+- React Router
+- React Fast Marquee
+- Framer Motion
+- Axios
+
+## server packages
+
+- Laravel
+- Laravel Sanctum
