@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useAxios } from '../../hooks/useAxios';
 import { OrderData, OrderDetails } from '../../types/order';
 import baseUrl from '../../global/BaseUrl';
-import { useAuth } from '../../context/AuthContext';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import GradientButton from '../../components/Buttons/GradientButton/GradientButton';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 //. components
 import Header from '../../components/Header/Header';
@@ -21,9 +21,10 @@ import styles from './OrderPage.module.css';
 export default function OrderPage() {
   const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
   const params = useParams();
+  const navigate = useNavigate();
   const context = useAuth();
   if (!context) return null;
-  const { token } = context;
+  const { token, user } = context;
 
   const [loading, data, error, request] = useAxios<OrderData>(
     {
@@ -41,6 +42,10 @@ export default function OrderPage() {
     },
     false
   );
+
+  if (!user) {
+    navigate('/login');
+  }
 
   const pathVariants = {
     hidden: {
