@@ -80,7 +80,7 @@ ADMIN_EMAIL=example@example.dev
 
 ### database
 
-![database schema](./img/db%20schema.png)
+![database schema](./img/dbSchema.png)
 
 To work with the project you'll need to perform migrations on database, to do so, open your terminal and run these commands:
 
