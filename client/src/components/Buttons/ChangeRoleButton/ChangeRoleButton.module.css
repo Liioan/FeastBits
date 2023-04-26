@@ -1,0 +1,31 @@
+.btn {
+  width: 20rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: 0.2s ease;
+}
+
+.admin {
+  background-color: var(--light-blue);
+  border: none;
+  border: 0.5rem solid transparent;
+}
+
+.admin:hover {
+  background-color: var(--red);
+}
+
+.user {
+  background-color: transparent;
+  color: var(--white);
+  border: 0.5rem solid var(--light-blue);
+}
+
+.user:hover {
+  background-color: var(--green-blue);
+  border-color: var(--green-blue);
+  color: var(--dark-gray);
+}

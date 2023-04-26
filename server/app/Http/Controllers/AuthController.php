@@ -77,13 +77,17 @@ class AuthController extends Controller
   }
 
   public function showUsers(Request $request){
-    return user::all();
+    return User::all();
   }
 
   public function changeUserRank($id){
-    $user = user::find($id);
+    $user = User::find($id);
     $user->is_admin = (!$user->is_admin);
     $user->update();
     return $user;
+  }
+
+  public function searchUsers($email){
+    return User::where('email', 'like', '%' . $email . '%')->get();
   }
 }

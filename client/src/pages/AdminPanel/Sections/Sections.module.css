@@ -97,7 +97,8 @@
 
 .adminBlogCard,
 .adminOfferCard,
-.adminOrderCard {
+.adminOrderCard,
+.adminUserCard {
   background-color: var(--black-alpha);
   padding-right: 2rem;
   border-radius: 1rem;
@@ -130,7 +131,8 @@
 
 .adminBlogCard span,
 .adminOfferCard span,
-.adminOrderCard span {
+.adminOrderCard span,
+.adminUserCard span {
   font-size: 3.2rem;
   color: var(--white);
   font-weight: 700;
@@ -161,7 +163,8 @@
   justify-content: space-between;
 }
 
-.adminOrderCard {
+.adminOrderCard,
+.adminUserCard {
   padding: 2rem;
 }
 

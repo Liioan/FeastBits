@@ -8,6 +8,7 @@ import {
   BlogSection,
   OfferSection,
   UserOrdersSection,
+  UsersSection,
 } from './Sections/Sections';
 
 //. styles
@@ -35,6 +36,8 @@ export default function AdminPanel() {
       <OfferSection />
       <Header text='User orders' step='h3' />
       <UserOrdersSection />
+      <Header text='Users' step='h3' />
+      <UsersSection />
     </main>
   );
 }

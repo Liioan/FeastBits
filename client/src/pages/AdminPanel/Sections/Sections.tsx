@@ -6,6 +6,7 @@ import { OrderData } from '../../../types/order';
 import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
+import { User } from '../../../types/user';
 
 //. components
 import ErrorScreen from '../../../components/ErrorScreen/ErrorScreen';
@@ -14,6 +15,7 @@ import DeleteButton from '../../../components/Buttons/DeleteButton/DeleteButton'
 import EditButton from '../../../components/Buttons/EditButton/EditButton';
 import { AddBlog, AddOffer } from '../AddSections/Add';
 import CompleteButton from '../../../components/Buttons/CompleteButton/CompleteButton';
+import ChangeRoleButton from '../../../components/Buttons/ChangeRoleButton/ChangeRoleButton';
 
 //. styles
 import styles from './Sections.module.css';
@@ -255,6 +257,68 @@ export function UserOrdersSection() {
                     refresh={request}
                   />
                 )}
+              </div>
+            ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function UsersSection() {
+  const context = useAuth();
+  if (!context) return null;
+  const { token } = context;
+
+  const [searchValue, setSearchValue] = useState<string | null>(null);
+
+  const [loading, data, error, request] = useAxios<User[]>({
+    method: 'GET',
+    url: `${baseUrl}/users${searchValue ? `/search/${searchValue}` : ''}`,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    request();
+  };
+
+  if (error) return <ErrorScreen errorMessage={error} />;
+
+  return (
+    <>
+      {loading && <LoadingScreen />}
+
+      <section className={styles.topBar}>
+        <form className={styles.searchBar} onSubmit={e => handleSubmit(e)}>
+          <input
+            type='text'
+            onChange={e => setSearchValue(e.target.value)}
+            placeholder={'search'}
+          />
+          <input
+            type='submit'
+            value='search'
+            className='material-symbols-outlined'
+          />
+        </form>
+        <div className={styles.innerWrapper}>
+          {data &&
+            data.map((user, i) => (
+              <div key={i} className={styles.adminUserCard}>
+                <p className={styles.adress}>
+                  <span>{user.name},</span>
+                  <span>{user.surname},</span>
+                  <span>{user.email}</span>
+                </p>
+                <ChangeRoleButton
+                  id={user.id}
+                  refresh={request}
+                  isAdmin={user.is_admin}
+                />
+                <DeleteButton path={`orders/${user.id}`} refresh={request} />
               </div>
             ))}
         </div>
