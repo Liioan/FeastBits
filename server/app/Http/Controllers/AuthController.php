@@ -75,4 +75,15 @@ class AuthController extends Controller
       'message' => 'logged out'
     ];
   }
+
+  public function showUsers(Request $request){
+    return user::all();
+  }
+
+  public function changeUserRank($id){
+    $user = user::find($id);
+    $user->is_admin = (!$user->is_admin);
+    $user->update();
+    return $user;
+  }
 }

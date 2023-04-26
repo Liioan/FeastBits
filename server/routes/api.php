@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::put('/orders/{id}', [OrderController::class, 'complete']);
             Route::get('/orders', [OrderController::class, 'index']);
             Route::get('/orders/search/{city}', [OrderController::class, 'search']);
+            Route::get('/users', [AuthController::class, 'showUsers']);
+            Route::put('/users/{id}', [AuthController::class, 'changeUserRank']);
         }
     );
 });
