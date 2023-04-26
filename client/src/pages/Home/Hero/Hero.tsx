@@ -1,9 +1,22 @@
-import { anticipate, motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 //. styles
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const [timesClicked, setTimesClicked] = useState(0);
+
+  const handleClick = () => {
+    setTimesClicked(prev => (prev += 1));
+  };
+
+  useEffect(() => {
+    if (timesClicked === 2) {
+      window.open('https://www.youtube.com/watch?v=o-YBDTqX_ZU');
+    }
+  }, [timesClicked]);
+
   return (
     <div className={styles.hero}>
       <div className={styles.container}>
@@ -45,6 +58,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'anticipate', delay: 2 }}
+        onClick={handleClick}
       >
         learn more
         <span className='material-symbols-outlined'>expand_more</span>{' '}
