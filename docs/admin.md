@@ -6,6 +6,7 @@
 - [adding, deleting and editing blog posts](#adding-deleting-and-editing-blog-posts)
 - [adding, deleting and editing offers](#adding-deleting-and-editing-offers)
 - [completing orders](#completing-orders)
+- [changing user role, deleting users](#changing-user-role-deleteing-users)
 
 ## Registration
 
@@ -87,3 +88,20 @@ If you want to complete an order press complete button on right side of the orde
 Or if you want to remove order from database, press the delete button
 
 ![deleting order from database](./img/admin/14.png)
+
+## Changing user role, deleteing users
+
+To change user role, first click on the admin panel button in top right corner
+
+![clicking admin panel button](./img/admin/4.png)
+
+Scroll down to Users section
+
+To change user role, click the button on the right side of user card
+
+![changing user role](./img/admin/15.png)
+![changing user role](./img/admin/16.png)
+
+To delete user, click on the remove button on the right side of user card
+
+![deleting user]('./img/admin/17.png)

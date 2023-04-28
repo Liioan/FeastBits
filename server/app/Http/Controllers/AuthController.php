@@ -90,4 +90,8 @@ class AuthController extends Controller
   public function searchUsers($email){
     return User::where('email', 'like', '%' . $email . '%')->get();
   }
+
+  public function deleteUser($id){
+    return User::destroy($id);
+  }
 }

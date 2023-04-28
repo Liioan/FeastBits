@@ -268,7 +268,7 @@ export function UserOrdersSection() {
 export function UsersSection() {
   const context = useAuth();
   if (!context) return null;
-  const { token } = context;
+  const { token, user: localUser } = context;
 
   const [searchValue, setSearchValue] = useState<string | null>(null);
 
@@ -313,12 +313,16 @@ export function UsersSection() {
                   <span>{user.surname},</span>
                   <span>{user.email}</span>
                 </p>
-                <ChangeRoleButton
-                  id={user.id}
-                  refresh={request}
-                  isAdmin={user.is_admin}
-                />
-                <DeleteButton path={`orders/${user.id}`} refresh={request} />
+                {!(user.id === localUser?.id) ? (
+                  <>
+                    <ChangeRoleButton
+                      id={user.id}
+                      refresh={request}
+                      isAdmin={user.is_admin}
+                    />
+                    <DeleteButton path={`users/${user.id}`} refresh={request} />
+                  </>
+                ) : null}
               </div>
             ))}
         </div>
